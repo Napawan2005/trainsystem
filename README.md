@@ -39,7 +39,7 @@ Welcome to the **Go to Heaven Project**! This project is a web-based application
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/go-to-heaven-project.git
+   git clone https://github.com/LUX14Zx/trainsystem.git
    cd go-to-heaven-project
    ```
 
