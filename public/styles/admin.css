@@ -1,0 +1,134 @@
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* Header Styling */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5em;
+}
+
+/* Navbar Styling */
+.admin-navbar {
+  background-color: #f4f4f4;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.admin-navbar li {
+  margin: 0 15px;
+}
+
+.admin-navbar li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.admin-navbar li a:hover {
+  color: #007bff;
+}
+
+/* Spacer for Navbar */
+.admin-navbar .spacer {
+  flex-grow: 1;
+}
+
+/* CRUD Route Section */
+.crud-route {
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.crud-route h2 {
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.crud-route p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* Route Table Styling */
+.route-table {
+  margin: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.route-form-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+/* Input Row Styling */
+.route-form-table .input-row td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Button Row Styling */
+.route-form-table .button-row td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Button Styling */
+.route-form-table button {
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.route-form-table button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Route List Table */
+#routeList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#routeList th,
+#routeList td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#routeList th {
+  background-color: #f4f4f4;
+}
