@@ -1,0 +1,79 @@
+/* payment.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: #fff;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.payment-box {
+    background: #444;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+}
+
+.payment-box h2 {
+    margin-top: 0;
+}
+
+#booking-details {
+    background: #555;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.price-info {
+    background: #555;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.payment-actions {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#cancel-btn {
+    background: #999;
+    color: #fff;
+}
+
+#confirm-btn {
+    background: #28a745;
+    color: #fff;
+}
+
+#cancel-btn:hover {
+    background: #888;
+}
+
+#confirm-btn:hover {
+    background: #218838;
+}

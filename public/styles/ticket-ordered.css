@@ -1,0 +1,89 @@
+/* ticket-ordered.css */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.admin-navbar {
+    background: #444;
+    padding: 10px;
+}
+
+.admin-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.admin-navbar ul li {
+    margin: 0 15px;
+}
+
+.admin-navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.admin-navbar ul .spacer {
+    flex-grow: 1;
+}
+
+.search-section {
+    background: #e2e2e2;
+    padding: 15px;
+    text-align: center;
+}
+
+.search-form input[type="number"],
+.search-form input[type="text"] {
+    padding: 8px;
+    margin: 5px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 8px 16px;
+    margin: 5px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.results-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.results-section table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.results-section th,
+.results-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.results-section th {
+    background: #333;
+    color: #fff;
+}

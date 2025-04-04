@@ -1,0 +1,86 @@
+/* edit-seat.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Navigation Bar */
+.admin-navbar {
+    background: #444;
+    padding: 10px;
+}
+
+.admin-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.admin-navbar ul li {
+    margin: 0 15px;
+}
+
+.admin-navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.admin-navbar ul .spacer {
+    flex-grow: 1;
+}
+
+/* Main seat container */
+.seat-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.seat-class-box {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.seat-class-box h2 {
+    margin-top: 0;
+}
+
+.seat-class-box p {
+    font-size: 1.1em;
+}
+
+.seat-class-box input[type="number"] {
+    padding: 8px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.seat-class-box button {
+    padding: 10px 15px;
+    border: none;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.seat-class-box button:hover {
+    background: #555;
+}

@@ -1,12 +1,5 @@
 // seat-select.js
 (() => {
-    // Hardcoded seat price mapping (A: 300, B: 200, C: 100)
-    const seatPriceMap = {
-        A: 300,
-        B: 200,
-        C: 100,
-    };
-
     // Ensure selectSeatSS is initialized in sessionStorage as an array of objects
     // Each object: { seatId: "SA1", seatClass: "A" }
     if (!sessionStorage.getItem("selectSeatSS")) {
@@ -110,6 +103,32 @@
         renderSelectedSeats();
     }
 
+    // Get seat price from SeatClassDB for a given seat class
+    function getSeatPrice(seatClass) {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open("SeatClassDB", 1);
+            request.onsuccess = (event) => {
+                const db = event.target.result;
+                const tx = db.transaction("seatClass", "readonly");
+                const store = tx.objectStore("seatClass");
+                const getRequest = store.get(seatClass);
+                getRequest.onsuccess = () => {
+                    if (getRequest.result) {
+                        resolve(getRequest.result.price);
+                    } else {
+                        resolve(0);
+                    }
+                };
+                getRequest.onerror = () => {
+                    reject("Error retrieving price for class " + seatClass);
+                };
+            };
+            request.onerror = () => {
+                reject("Error opening SeatClassDB");
+            };
+        });
+    }
+
     // Render seat summary (selected seats list and total price)
     function renderSelectedSeats() {
         const selectedSeats = JSON.parse(sessionStorage.getItem("selectSeatSS"));
@@ -119,23 +138,33 @@
         // Clear existing summary
         summaryContainer.innerHTML = "";
 
-        // Calculate total price
-        let totalPrice = 0;
-        selectedSeats.forEach((seat) => {
-            const seatItem = document.createElement("div");
-            const seatCost = seatPriceMap[seat.seatClass] || 0;
-            totalPrice += seatCost;
-            seatItem.textContent = `${seat.seatId} (Class ${seat.seatClass}) - $${seatCost}`;
-            summaryContainer.appendChild(seatItem);
+        // For each selected seat, retrieve its price from SeatClassDB and then update summary
+        const pricePromises = selectedSeats.map((seat) =>
+            getSeatPrice(seat.seatClass).then((price) => {
+                return { seat, price };
+            })
+        );
 
-            // Also mark seat as selected in case user refreshes
-            const seatBtn = document.querySelector(`[data-seat="${seat.seatId}"]`);
-            if (seatBtn) {
-                seatBtn.classList.add("selected");
-            }
-        });
+        Promise.all(pricePromises)
+            .then((results) => {
+                let totalPrice = 0;
+                results.forEach((item) => {
+                    totalPrice += item.price;
+                    const seatItem = document.createElement("div");
+                    seatItem.textContent = `${item.seat.seatId} (Class ${item.seat.seatClass}) - $${item.price}`;
+                    summaryContainer.appendChild(seatItem);
 
-        totalPriceElem.textContent = totalPrice;
-        sessionStorage.setItem("totalPrice", totalPrice.toString());
+                    // Mark seat as selected (in case user refreshed)
+                    const seatBtn = document.querySelector(`[data-seat="${item.seat.seatId}"]`);
+                    if (seatBtn) {
+                        seatBtn.classList.add("selected");
+                    }
+                });
+                totalPriceElem.textContent = totalPrice;
+                sessionStorage.setItem("totalPrice", totalPrice.toString());
+            })
+            .catch((error) => {
+                console.error("Error calculating seat prices:", error);
+            });
     }
 })();

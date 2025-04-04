@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Ordered - Admin Dashboard</title>
+    <link rel="stylesheet" href="/styles/ticket-ordered.css" />
+    <!-- Include admin-auth.js to restrict access -->
+    <script src="/scripts/admin/admin-auth.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Ticket Ordered</h1>
+    </header>
+
+    <nav class="admin-navbar">
+      <ul>
+        <li><a href="admin-db.html">CRUD Admin Database</a></li>
+        <li><a href="crud-user.html">CRUD User Database</a></li>
+        <li class="spacer"></li>
+        <li><a href="/index.html">Back to Main Page</a></li>
+      </ul>
+    </nav>
+
+    <section class="search-section">
+      <h2>Search Tickets</h2>
+      <div class="search-form">
+        <input type="number" id="ticketID" placeholder="Ticket ID" />
+        <input type="number" id="routeID" placeholder="Route ID" />
+        <input type="number" id="userID" placeholder="User ID" />
+        <input type="number" id="totalPrice" placeholder="Total Price" />
+        <input type="text" id="seatFilter" placeholder="Seat (e.g. SA11)" />
+        <button id="searchBtn">Search</button>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <h2>Ticket Records</h2>
+      <div id="ticketList"></div>
+    </section>
+
+    <script type="module" src="/scripts/admin/ticket-ordered.js"></script>
+  </body>
+</html>
