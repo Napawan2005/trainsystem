@@ -1,0 +1,102 @@
+/* booking.css */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    background: #444;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.search-section {
+    padding: 20px;
+    text-align: center;
+    background: #e2e2e2;
+}
+
+.search-form {
+    margin: 20px auto;
+}
+
+.search-form input[type="text"],
+.search-form input[type="time"] {
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.results-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.results-section table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.results-section th,
+.results-section td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.results-section th {
+    background: #333;
+    color: #fff;
+}
+
+/* Book button styling */
+.book-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.book-btn.enabled {
+    background-color: green;
+}
+
+.book-btn.disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}

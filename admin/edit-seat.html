@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Edit Seat Prices - Admin</title>
+    <!-- Include admin-auth.js for admin-only access -->
+    <script src="/scripts/admin/admin-auth.js"></script>
+    <link rel="stylesheet" href="/styles/edit-seat.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Edit Seat Class Prices</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="admin-navbar">
+      <ul>
+        <li><a href="admin-db.html">CRUD Admin Database</a></li>
+        <li><a href="crud-user.html">CRUD User Database</a></li>
+        <li><a href="ticket-ordered.html">Ticket Ordered</a></li>
+        <li class="spacer"></li>
+        <li><a href="/index.html">Back to Main Page</a></li>
+      </ul>
+    </nav>
+
+    <main class="seat-container">
+      <!-- Class A -->
+      <div class="seat-class-box">
+        <h2>Class A</h2>
+        <p>Current Price: <span id="priceA">...</span></p>
+        <input type="number" id="newPriceA" placeholder="New Price" />
+        <button id="updateA">Update</button>
+      </div>
+
+      <!-- Class B -->
+      <div class="seat-class-box">
+        <h2>Class B</h2>
+        <p>Current Price: <span id="priceB">...</span></p>
+        <input type="number" id="newPriceB" placeholder="New Price" />
+        <button id="updateB">Update</button>
+      </div>
+
+      <!-- Class C -->
+      <div class="seat-class-box">
+        <h2>Class C</h2>
+        <p>Current Price: <span id="priceC">...</span></p>
+        <input type="number" id="newPriceC" placeholder="New Price" />
+        <button id="updateC">Update</button>
+      </div>
+    </main>
+
+    <script type="module" src="/scripts/admin/edit-seat.js"></script>
+  </body>
+</html>

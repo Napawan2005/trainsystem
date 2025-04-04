@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking - Go to Heaven</title>
+    <link rel="stylesheet" href="/styles/booking.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Booking Page</h1>
+    </header>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="#" id="logout-btn">Logout</a></li>
+      </ul>
+    </nav>
+
+    <section class="search-section">
+      <h2>Search Available Routes</h2>
+      <div class="search-form">
+        <input type="text" id="departure" placeholder="Departure" />
+        <input type="text" id="destination" placeholder="Destination" />
+        <input type="time" id="time" placeholder="Time" />
+        <button id="searchBtn">Search</button>
+      </div>
+    </section>
+
+
+    <section class="results-section">
+      <h2>Available Routes</h2>
+      <div id="results"></div>
+    </section>
+
+    <script type="module" src="/scripts/booking.js"></script>
+    <script src="/scripts/user/logout.js"></script>
+
+  </body>
+</html>

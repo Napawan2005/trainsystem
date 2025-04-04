@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin User Management - Go to Heaven</title>
+    <link rel="stylesheet" href="/styles/crud-user.css" />
+        <!-- Include admin-auth.js first to validate the admin user -->
+    <script src="/scripts/admin/admin-auth.js"></script>
+  </head>
+  <body>
+    <!-- Admin Dashboard Title -->
+    <header>
+      <h1>User Dashboard</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="admin-navbar">
+      <ul>
+        <li><a href="admin-db.html">CRUD Route</a></li>
+        <li><a href="ticket-ordered.html">Sold History Ticket</a></li>
+        <li><a href="edit-seat.html">Edit Seat Price</a></li>
+        <li class="spacer"></li>
+        <li><a href="index.html">Back to Main Page</a></li>
+        <li><a href="#" id="logout-btn">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Default CRUD User Information Content -->
+    <section class="crud-user">
+      <h2>CRUD User Information</h2>
+      <p>This is the default admin content for managing User information.</p>
+    </section>
+
+    <!-- User Table for CRUD Operations -->
+    <div class="user-table">
+      <table class="user-form-table">
+        <!-- Input Row -->
+        <tr class="input-row">
+          <td><input type="number" id="userID" placeholder="userID" /></td>
+          <td><input type="text" id="username" placeholder="username" /></td>
+          <td><input type="text" id="password" placeholder="password" /></td>
+          <td>
+            <label for="role">Choose a role: </label>
+            <select name="role" id="role">
+              <option value="">Role</option>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </td>
+        </tr>
+        <!-- Button Row: Create, Search, Update, Delete -->
+        <tr class="button-row">
+          <td colspan="2"><button id="createBtn">Create</button></td>
+          <td colspan="1"><button id="searchBtn">Search</button></td>
+          <td colspan="1"><button id="updateBtn">Update</button></td>
+          <td colspan="2"><button id="deleteBtn">Delete</button></td>
+        </tr>
+      </table>
+      <!-- Div to display the list of users -->
+      <div id="userList"></div>
+    </div>
+
+    <script type="module" src="/scripts/admin/crud-user.js"></script>
+    <script src="/scripts/user/logout.js"></script>
+  </body>
+</html>

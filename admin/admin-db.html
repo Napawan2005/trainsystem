@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Go to Heaven</title>
+    <link rel="stylesheet" href="/styles/admin.css" />
+        <!-- Include admin-auth.js first to validate the admin user -->
+    <script src="/scripts/admin/admin-auth.js"></script>
+  </head>
+  <body>
+    <!-- Admin Dashboard Title -->
+    <header>
+      <h1>Admin Dashboard</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="admin-navbar">
+      <ul>
+        <li><a href="crud-user.html">CRUD User</a></li>
+        <li><a href="ticket-ordered.html">Sold History Ticket</a></li>
+        <li><a href="edit-seat.html">Edit Seat Price</a></li>
+        <li class="spacer"></li>
+        <li><a href="/">Back to Main Page</a></li>
+        <li><a href="#" id="logout-btn">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Default CRUD Route Information Content -->
+    <section class="crud-route">
+      <h2>CRUD Route Information</h2>
+      <p>This is the default admin content for managing route information.</p>
+      <!-- Additional CRUD functionalities for routes can be implemented here -->
+    </section>
+
+    <!-- Route Table for CRUD Operations -->
+    <div class="route-table">
+      <table class="route-form-table">
+        <!-- Input Row -->
+        <tr class="input-row">
+          <td><input type="number" id="routeID" placeholder="Route ID" /></td>
+          <td><input type="text" id="departure" placeholder="Departure" /></td>
+          <td><input type="text" id="destination" placeholder="Destination" /></td>
+          <td><label for="date">Date: <input type="date" id="date" title="Select departure date" /></label></td>
+          <td><label for="time">Time: <input type="time" id="time" placeholder="HH:MM" title="Select departure time" /></label></td>
+        </tr>
+        <!-- Button Row: Create, Search, Update, Delete -->
+        <tr class="button-row">
+          <td colspan="2"><button id="createBtn">Create</button></td>
+          <td colspan="1"><button id="searchBtn">Search</button></td>
+          <td colspan="1"><button id="updateBtn">Update</button></td>
+          <td colspan="2"><button id="deleteBtn">Delete</button></td>
+        </tr>
+      </table>
+      <!-- Div to display the list of routes -->
+      <div id="routeList"></div>
+    </div>
+
+    <script type="module" src="/scripts/admin/admins.js"></script>
+        <script src="/scripts/user/logout.js"></script>
+  </body>
+</html>

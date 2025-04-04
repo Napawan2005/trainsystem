@@ -1,0 +1,106 @@
+/* Reset defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+/* Navbar Styling */
+.admin-navbar {
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.admin-navbar li {
+    margin: 0 15px;
+}
+
+.admin-navbar li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.admin-navbar li a:hover {
+    color: #007bff;
+}
+
+/* Spacer for Navbar */
+.admin-navbar .spacer {
+    flex-grow: 1;
+}
+
+/* CRUD User Section */
+.crud-user {
+    margin: 20px;
+    text-align: center;
+}
+
+/* User Table and Form Styling */
+.user-table {
+    width: 90%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.user-form-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Button Row Styling */
+.button-row td {
+    text-align: center;
+}
+
+/* Display Table Styling */
+.user-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.user-table th {
+    background: #333;
+    color: #fff;
+}

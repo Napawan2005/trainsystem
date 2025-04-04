@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment Information - Go to Heaven</title>
+    <link rel="stylesheet" href="/styles/payment.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Payment Information</h1>
+    </header>
+
+    <main class="payment-container">
+      <div class="payment-box">
+        <h2>Booking Summary</h2>
+        <div id="booking-details"></div>
+        <div class="price-info">
+          <p>Subtotal: $<span id="subtotal">0</span></p>
+          <p>VAT (7%): $<span id="vat-amount">0</span></p>
+          <p>Total: $<span id="final-total">0</span></p>
+        </div>
+        <div class="payment-actions">
+          <button id="cancel-btn">Cancel</button>
+          <button id="confirm-btn">Confirm</button>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="/scripts/payment.js"></script>
+  </body>
+</html>
