@@ -12,11 +12,13 @@
                 db = event.target.result;
                 if (!db.objectStoreNames.contains(storeName)) {
                     db.createObjectStore(storeName, { keyPath: "routeID" });
+                    console.log("Created object store: " + storeName);
                 }
             };
 
             request.onsuccess = (event) => {
                 db = event.target.result;
+                console.log("Database opened successfully.");
                 resolve(db);
             };
 
@@ -56,7 +58,7 @@
             destination,
             date,
             time,
-            number_of_seat: 48, // Default number of seats
+            number_of_seat: 48 // Default number of seats
         };
 
         const request = store.add(newRoute);
@@ -93,7 +95,7 @@
                 alert("Route not found.");
                 return;
             }
-            // Update values (if provided, else keep current)
+            // Update values if provided; otherwise, keep current
             data.departure = departure || data.departure;
             data.destination = destination || data.destination;
             data.date = date || data.date;
@@ -135,7 +137,7 @@
         };
     }
 
-    // Display all routes in the routeList div
+    // Display all routes in the routeList div with available seats calculated
     function displayRoutes() {
         const routeListDiv = document.getElementById("routeList");
         routeListDiv.innerHTML = "";
@@ -144,24 +146,55 @@
         const store = transaction.objectStore(storeName);
         const request = store.openCursor();
         let routesHTML = "<table>";
-        routesHTML += "<tr><th>Route ID</th><th>Departure</th><th>Destination</th><th>Date</th><th>Time</th><th>Seats</th></tr>";
+        routesHTML += `
+            <tr>
+                <th>Route ID</th>
+                <th>Departure</th>
+                <th>Destination</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Total Seats</th>
+                <th>Available Seats</th>
+            </tr>
+        `;
+
+        // Array to hold promises for each route row
+        let routePromises = [];
 
         request.onsuccess = (event) => {
             const cursor = event.target.result;
             if (cursor) {
                 const route = cursor.value;
-                routesHTML += `<tr>
-                    <td>${route.routeID}</td>
-                    <td>${route.departure}</td>
-                    <td>${route.destination}</td>
-                    <td>${route.date}</td>
-                    <td>${route.time}</td>
-                    <td>${route.number_of_seat}</td>
-                </tr>`;
+                // Create a promise for each route to get the available seat count
+                let p = getBookedSeats(route.routeID).then((bookedSeats) => {
+                    let available = route.number_of_seat - bookedSeats;
+                    return `<tr>
+                        <td>${route.routeID}</td>
+                        <td>${route.departure}</td>
+                        <td>${route.destination}</td>
+                        <td>${route.date}</td>
+                        <td>${route.time}</td>
+                        <td>${route.number_of_seat}</td>
+                        <td>${available}</td>
+                    </tr>`;
+                });
+                routePromises.push(p);
                 cursor.continue();
             } else {
-                routesHTML += "</table>";
-                routeListDiv.innerHTML = routesHTML;
+                // When all routes have been processed, wait for all promises to resolve
+                Promise.all(routePromises)
+                    .then((rows) => {
+                        if (rows.length === 0) {
+                            routesHTML += `<tr><td colspan="7">No routes found.</td></tr>`;
+                        } else {
+                            routesHTML += rows.join("");
+                        }
+                        routesHTML += "</table>";
+                        routeListDiv.innerHTML = routesHTML;
+                    })
+                    .catch((error) => {
+                        alert("Error calculating available seats: " + error);
+                    });
             }
         };
 
@@ -170,64 +203,41 @@
         };
     }
 
-    // Search routes based on input criteria
-    function searchRoutes() {
-        const routeIDVal = document.getElementById("routeID").value.trim();
-        const departureVal = document.getElementById("departure").value.trim().toLowerCase();
-        const destinationVal = document.getElementById("destination").value.trim().toLowerCase();
-        const dateVal = document.getElementById("date").value.trim();
-        const timeVal = document.getElementById("time").value.trim();
-        const numberSeatVal = document.getElementById("number_of_seat").value.trim();
-
-        const routeListDiv = document.getElementById("routeList");
-        routeListDiv.innerHTML = "";
-
-        const transaction = db.transaction([storeName], "readonly");
-        const store = transaction.objectStore(storeName);
-        const request = store.openCursor();
-        let routesHTML = "<table>";
-        routesHTML += "<tr><th>Route ID</th><th>Departure</th><th>Destination</th><th>Date</th><th>Time</th><th>Seats</th></tr>";
-        let foundMatch = false; // Flag to track if any route is found
-
-        request.onsuccess = (event) => {
-            const cursor = event.target.result;
-            if (cursor) {
-                const route = cursor.value;
-                let match = true;
-                if (routeIDVal && route.routeID !== parseInt(routeIDVal)) match = false;
-                if (departureVal && !route.departure.toLowerCase().includes(departureVal)) match = false;
-                if (destinationVal && !route.destination.toLowerCase().includes(destinationVal)) match = false;
-                if (dateVal && route.date !== dateVal) match = false;
-                if (timeVal && route.time !== timeVal) match = false;
-                if (numberSeatVal && route.number_of_seat !== parseInt(numberSeatVal)) match = false;
-                if (match) {
-                    foundMatch = true;
-                    routesHTML += `<tr>
-                        <td>${route.routeID}</td>
-                        <td>${route.departure}</td>
-                        <td>${route.destination}</td>
-                        <td>${route.date}</td>
-                        <td>${route.time}</td>
-                        <td>${route.number_of_seat}</td>
-                    </tr>`;
-                }
-                cursor.continue();
-            } else {
-                routesHTML += "</table>";
-                routeListDiv.innerHTML = routesHTML;
-                // Alert user based on search results
-                if (foundMatch) {
-                    alert("Routes found!");
-                } else {
-                    alert("No routes found.");
-                }
-                clearInputs(); // Clear inputs after search
-            }
-        };
-
-        request.onerror = () => {
-            alert("Error searching routes.");
-        };
+    // Helper function to get the total number of booked seats for a given routeID from TicketDB
+    function getBookedSeats(routeID) {
+        return new Promise((resolve, reject) => {
+            let bookedCount = 0;
+            const ticketRequest = indexedDB.open("TicketDB", 1);
+            ticketRequest.onsuccess = (event) => {
+                const ticketDB = event.target.result;
+                const tx = ticketDB.transaction("tickets", "readonly");
+                const store = tx.objectStore("tickets");
+                const cursorRequest = store.openCursor();
+                cursorRequest.onsuccess = (e) => {
+                    const cursor = e.target.result;
+                    if (cursor) {
+                        const ticket = cursor.value;
+                        if (ticket.routeID === routeID) {
+                            // Prefer seatTaken if available; otherwise, count seats from seatName array.
+                            if (ticket.seatTaken) {
+                                bookedCount += ticket.seatTaken;
+                            } else if (ticket.seatName && Array.isArray(ticket.seatName)) {
+                                bookedCount += ticket.seatName.length;
+                            }
+                        }
+                        cursor.continue();
+                    } else {
+                        resolve(bookedCount);
+                    }
+                };
+                cursorRequest.onerror = () => {
+                    reject("Error retrieving tickets.");
+                };
+            };
+            ticketRequest.onerror = () => {
+                reject("Error opening TicketDB.");
+            };
+        });
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -240,7 +250,7 @@
             });
 
         document.getElementById("createBtn").addEventListener("click", createRoute);
-        document.getElementById("searchBtn").addEventListener("click", searchRoutes);
+        document.getElementById("searchBtn").addEventListener("click", displayRoutes);
         document.getElementById("updateBtn").addEventListener("click", updateRoute);
         document.getElementById("deleteBtn").addEventListener("click", deleteRoute);
     });

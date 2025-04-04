@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sessionStorage.removeItem("loggedInUser");
             alert("You have been logged out successfully!");
             // Redirect to the homepage (or login page) after logout
-            window.location.href = "index.html";
+            window.location.href = "/index.html";
         });
     }
 });

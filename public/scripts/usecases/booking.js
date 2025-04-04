@@ -95,14 +95,14 @@
                     for (const route of routes) {
                         const availableSeats = await getAvailableSeats(route.routeID, route.number_of_seat);
                         resultsHTML += `<tr>
-              <td>${route.routeID}</td>
-              <td>${route.departure}</td>
-              <td>${route.destination}</td>
-              <td>${route.date}</td>
-              <td>${route.time}</td>
-              <td>${route.number_of_seat}</td>
-              <td>${availableSeats}</td>
-              <td>`;
+                                            <td>${route.routeID}</td>
+                                            <td>${route.departure}</td>
+                                            <td>${route.destination}</td>
+                                            <td>${route.date}</td>
+                                            <td>${route.time}</td>
+                                            <td>${route.number_of_seat}</td>
+                                            <td>${availableSeats}</td>
+                                        <td>`;
                         if (availableSeats >= 1) {
                             resultsHTML += `<button class="book-btn enabled" onclick="bookRoute(${route.routeID})">Book</button>`;
                         } else {
@@ -129,10 +129,12 @@
         // Save the selected route in sessionStorage
         sessionStorage.setItem("userSelectRouteID", routeID);
         // Redirect to the seat selection page
-        window.location.href = "/src/seat-select.html";
+        window.location.href = "/src/usecases/seat-select.html";
     };
 
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("searchBtn").addEventListener("click", searchRoutes);
+        // On first load or refresh, query all routes (with no filters)
+        searchRoutes();
     });
 })();

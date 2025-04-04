@@ -50,9 +50,9 @@
                             // Store user details (userID, username, role) in session storage
                             sessionStorage.setItem("loggedInUser", JSON.stringify({ userID: user.userID, username: user.username, role: user.role }));
                             if (user.role === "admin") {
-                                window.location.href = "admin/admin-db.html";
+                                window.location.href = "/src/admin/crud-route.html";
                             } else {
-                                window.location.href = "booking.html";
+                                window.location.href = "/src/usecases/booking.html";
                             }
                         }
                     };

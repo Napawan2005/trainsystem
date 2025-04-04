@@ -63,9 +63,9 @@
                                 // Store logged in user details in session storage
                                 sessionStorage.setItem("loggedInUser", JSON.stringify(newUser));
                                 if (newUser.role === "admin") {
-                                    window.location.href = "admin/admin-db.html";
+                                    window.location.href = "/src/admin/crud-route.html";
                                 } else {
-                                    window.location.href = "booking.html";
+                                    window.location.href = "/src/usecases/booking.html";
                                 }
                             };
 

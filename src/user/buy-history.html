@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Purchase History - Go to Heaven</title>
+    <link rel="stylesheet" href="/styles/user/buy-history.css" />
+    <!-- Optionally, include a login check script -->
+    <script src="/scripts/user/check-login.js"></script>
+</head>
+<body>
+<header>
+    <h1>Your Ticket Purchase History</h1>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/src/usecases/booking.html">Booking</a></li>
+            <li><a href="#" id="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div id="history-container"></div>
+</main>
+<script type="module" src="/scripts/user/buy-history.js"></script>
+<script src="/scripts/usecases/logout.js"></script>
+</body>
+</html>

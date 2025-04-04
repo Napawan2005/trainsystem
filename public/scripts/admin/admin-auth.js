@@ -5,7 +5,7 @@
     // If there's no logged in user, deny access and redirect to login page
     if (!loggedInUserJSON) {
         alert("Access denied. You must be logged in as an admin to access this page.");
-        window.location.href = "/login.html"; // Change to your actual login page URL
+        window.location.href = "/index.html"; // Change to your actual login page URL
         return;
     }
 
@@ -16,14 +16,14 @@
         console.error("Error parsing logged in user data:", error);
         alert("Invalid session data. Please log in again.");
         sessionStorage.removeItem("loggedInUser");
-        window.location.href = "/login.html";
+        window.location.href = "/index.html";
         return;
     }
 
     // Check if the user's role is admin (using toLowerCase for consistency)
     if (loggedInUser.role.toLowerCase() !== "admin") {
         alert("Access denied. Admins only.");
-        window.location.href = "/login.html"; // Redirect non-admin users to login page
+        window.location.href = "/index.html"; // Redirect non-admin users to login page
         return;
     }
 

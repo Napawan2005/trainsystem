@@ -15,7 +15,7 @@
         const selectedRouteID = sessionStorage.getItem("userSelectRouteID");
         if (!selectedRouteID) {
             alert("No route selected. Redirecting to booking page.");
-            window.location.href = "booking.html";
+            window.location.href = "/src/usecases/booking.html";
             return;
         }
 
@@ -33,6 +33,9 @@
             });
         });
 
+        // Disable seats that are already taken by others
+        disableTakenSeats(selectedRouteID);
+
         // Attach event listener to Confirm Button
         const confirmBtn = document.getElementById("confirm-btn");
         confirmBtn.addEventListener("click", () => {
@@ -43,7 +46,7 @@
                 return;
             }
             // Redirect to payment page
-            window.location.href = "payment.html";
+            window.location.href = "/src/usecases/payment.html";
         });
     });
 
@@ -80,6 +83,11 @@
 
     // Toggle selection state for a seat button
     function toggleSeatSelection(button) {
+        // Do not allow selection if the seat is already disabled/taken
+        if (button.disabled) {
+            return;
+        }
+
         const seatId = button.dataset.seat;
         const seatClass = button.dataset.class;
         let selectedSeats = JSON.parse(sessionStorage.getItem("selectSeatSS"));
@@ -165,6 +173,59 @@
             })
             .catch((error) => {
                 console.error("Error calculating seat prices:", error);
+            });
+    }
+
+    // New function: Get an array of taken seat IDs for the given route from TicketDB
+    function getTakenSeatIDs(routeID) {
+        return new Promise((resolve, reject) => {
+            const takenSeats = new Set();
+            const ticketRequest = indexedDB.open("TicketDB", 1);
+            ticketRequest.onsuccess = (event) => {
+                const ticketDB = event.target.result;
+                const tx = ticketDB.transaction("tickets", "readonly");
+                const store = tx.objectStore("tickets");
+                const cursorRequest = store.openCursor();
+                cursorRequest.onsuccess = (e) => {
+                    const cursor = e.target.result;
+                    if (cursor) {
+                        const ticket = cursor.value;
+                        if (ticket.routeID === Number(routeID)) {
+                            if (ticket.seatName && Array.isArray(ticket.seatName)) {
+                                ticket.seatName.forEach(seat => {
+                                    takenSeats.add(seat.seatId);
+                                });
+                            }
+                        }
+                        cursor.continue();
+                    } else {
+                        resolve([...takenSeats]);
+                    }
+                };
+                cursorRequest.onerror = () => {
+                    reject("Error retrieving tickets.");
+                };
+            };
+            ticketRequest.onerror = () => {
+                reject("Error opening TicketDB.");
+            };
+        });
+    }
+
+    // New function: Disable seat buttons that have been taken by other users
+    function disableTakenSeats(routeID) {
+        getTakenSeatIDs(routeID)
+            .then((takenSeatIDs) => {
+                document.querySelectorAll(".seat").forEach((button) => {
+                    // If the seat is taken and not already selected by current user, disable it
+                    if (takenSeatIDs.includes(button.dataset.seat) && !button.classList.contains("selected")) {
+                        button.disabled = true;
+                        button.classList.add("taken"); // For styling
+                    }
+                });
+            })
+            .catch((error) => {
+                console.error("Error getting taken seats:", error);
             });
     }
 })();
