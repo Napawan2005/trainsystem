@@ -1,4 +1,4 @@
-// edit-seat.js
+// edit-seat-price.js
 (() => {
     let db;
 

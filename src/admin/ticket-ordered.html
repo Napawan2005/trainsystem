@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ticket Ordered - Admin Dashboard</title>
-    <link rel="stylesheet" href="/styles/ticket-ordered.css" />
+    <link rel="stylesheet" href="/styles/admin/ticket-ordered-history.css" />
     <!-- Include admin-auth.js to restrict access -->
     <script src="/scripts/admin/admin-auth.js"></script>
   </head>
@@ -15,8 +15,8 @@
 
     <nav class="admin-navbar">
       <ul>
-        <li><a href="admin-db.html">CRUD Admin Database</a></li>
-        <li><a href="crud-user.html">CRUD User Database</a></li>
+        <li><a href="/src/admin/crud-route.html">CRUD Route DB Management</a></li>
+        <li><a href="/src/admin/crud-user.html">CRUD User DB Managment</a></li>
         <li class="spacer"></li>
         <li><a href="/index.html">Back to Main Page</a></li>
       </ul>
@@ -39,6 +39,6 @@
       <div id="ticketList"></div>
     </section>
 
-    <script type="module" src="/scripts/admin/ticket-ordered.js"></script>
+    <script type="module" src="/scripts/admin/ticket-ordered-history.js"></script>
   </body>
 </html>

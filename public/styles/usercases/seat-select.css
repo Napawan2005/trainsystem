@@ -115,3 +115,8 @@ header {
     padding: 5px;
     border-radius: 4px;
 }
+
+.seat.taken {
+    background-color: #ccc !important;
+    cursor: not-allowed;
+}

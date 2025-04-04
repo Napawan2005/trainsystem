@@ -9,7 +9,7 @@
         // If no booking data is available, redirect back to seat-select page.
         if (!routeID || seatArray.length === 0) {
             alert("No booking data found. Redirecting...");
-            window.location.href = "seat-select.html";
+            window.location.href = "/src/usecases/seat-select.html";
             return;
         }
 
@@ -22,7 +22,7 @@
 
         // Attach event listener for Cancel button → redirect back to seat-select.html
         document.getElementById("cancel-btn").addEventListener("click", () => {
-            window.location.href = "seat-select.html";
+            window.location.href = "/src/usecases/seat-select.html";
         });
 
         // Attach event listener for Confirm button → insert record into TicketDB
@@ -94,7 +94,7 @@
                 sessionStorage.removeItem("selectSeatSS");
                 sessionStorage.removeItem("totalPrice");
                 // Redirect to a confirmation or home page
-                window.location.href = "index.html";
+                window.location.href = "/src/user/buy-history.html";
             };
             addRequest.onerror = () => {
                 alert("Error storing ticket. Please try again.");

@@ -205,7 +205,7 @@
                     if (loggedInUser.userID === deletedUserID) {
                         sessionStorage.removeItem("loggedInUser");
                         alert("User deleted successfully! Current user session removed. Redirecting to index page.");
-                        window.location.href = "index.html";
+                        window.location.href = "/index.html";
                         return;
                     }
                 } catch (e) {
