@@ -11,7 +11,8 @@
             request.onupgradeneeded = (event) => {
                 const db = event.target.result;
                 if (!db.objectStoreNames.contains(tableName)) {
-                    db.createObjectStore(tableName, { keyPath: "username" });
+                    let store = db.createObjectStore(tableName, { keyPath: "userID", autoIncrement: true });
+                    store.createIndex("username", "username", { unique: true });
                 }
             };
             request.onsuccess = (event) => resolve(event.target.result);
@@ -34,7 +35,9 @@
                     const db = await openDB();
                     const tx = db.transaction(tableName, "readonly");
                     const store = tx.objectStore(tableName);
-                    const getRequest = store.get(username);
+                    // Use the username index to retrieve the user record
+                    const index = store.index("username");
+                    const getRequest = index.get(username);
 
                     getRequest.onsuccess = () => {
                         const user = getRequest.result;
@@ -44,15 +47,12 @@
                             alert("Incorrect password!");
                         } else {
                             alert("Login successful!");
-                            // Set session with the logged in username
-                            sessionStorage.setItem("loggedInUser", username);
-
-                            if (username =="admin") {
-                                window.location.href = "admin.html";
-                                alert("Login successful! Redirecting to admin page."); // Redirect to admin page
+                            // Store user details (userID, username, role) in session storage
+                            sessionStorage.setItem("loggedInUser", JSON.stringify({ userID: user.userID, username: user.username, role: user.role }));
+                            if (user.role === "admin") {
+                                window.location.href = "admin/admin-db.html";
                             } else {
                                 window.location.href = "booking.html";
-                                alert("Login successful! Redirecting to booking page."); // Redirect to booking page
                             }
                         }
                     };

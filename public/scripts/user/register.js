@@ -1,6 +1,6 @@
 // register.js
 (() => {
-    const dbName = "UserDB";;
+    const dbName = "UserDB";
     const tableName = "users";
 
     // Open IndexedDB connection and create object store if needed
@@ -10,8 +10,10 @@
             request.onerror = (event) => reject("Database error: " + event.target.errorCode);
             request.onupgradeneeded = (event) => {
                 const db = event.target.result;
-                if (!db.objecttableNames.contains(tableName)) {
-                    db.createObjectStore(tableName, { keyPath: "username" });
+                if (!db.objectStoreNames.contains(tableName)) {
+                    let store = db.createObjectStore(tableName, { keyPath: "userID", autoIncrement: true });
+                    // Create an index on username to ensure uniqueness
+                    store.createIndex("username", "username", { unique: true });
                 }
             };
             request.onsuccess = (event) => resolve(event.target.result);
@@ -41,26 +43,35 @@
                     const db = await openDB();
                     const tx = db.transaction(tableName, "readwrite");
                     const store = tx.objectStore(tableName);
-                    const getRequest = store.get(username);
+                    // Use the index to check if username already exists
+                    const index = store.index("username");
+                    const getRequest = index.get(username);
 
                     getRequest.onsuccess = () => {
                         if (getRequest.result) {
                             alert("User already exists!");
                         } else {
-                            // Store the new user credentials
-                            store.add({ username, password });
-                            tx.oncomplete = () => {
+                            // Determine role: if username starts with "admin-" then role = "admin", otherwise "user"
+                            const role = username.startsWith("admin-") ? "admin" : "user";
+                            const newUser = { username, password, role };
+                            const addRequest = store.add(newUser);
+
+                            addRequest.onsuccess = (event) => {
+                                // Auto-generated userID from the add operation
+                                newUser.userID = event.target.result;
                                 alert("Registration successful!");
-                                // Set session with the logged in username
-                                sessionStorage.setItem("loggedInUser", username);
-                                if (username == "admin") {
-                                    window.location.href = "admin.html";
-                                    alert("Login successful! Redirecting to admin page."); // Redirect to admin page
+                                // Store logged in user details in session storage
+                                sessionStorage.setItem("loggedInUser", JSON.stringify(newUser));
+                                if (newUser.role === "admin") {
+                                    window.location.href = "admin/admin-db.html";
                                 } else {
                                     window.location.href = "booking.html";
-                                    alert("Login successful! Redirecting to booking page."); // Redirect to booking page
                                 }
-                            }
+                            };
+
+                            addRequest.onerror = () => {
+                                alert("Error creating user. Please try again.");
+                            };
                         }
                     };
 
