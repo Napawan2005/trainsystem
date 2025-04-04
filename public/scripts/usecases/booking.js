@@ -125,7 +125,7 @@
 
     // Global function to handle booking action.
     window.bookRoute = function (routeID) {
-        alert(routeID)
+        
         // Save the selected route in sessionStorage
         sessionStorage.setItem("userSelectRouteID", routeID);
         // Redirect to the seat selection page
