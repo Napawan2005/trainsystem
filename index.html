@@ -1,13 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Go To Heaven</title>
+        <link rel="stylesheet" href="/styles/index.css" />
+    </head>
+
+<body>
+  <!-- ====================== Header ====================== -->
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="index.html">Go to Heaven</a>
+      </div>
+      <div class="nav-actions">
+        <button class="change-TH" id="translate-btn">Translate</button>
+      </div>
+    </nav>
+
+  <div class="user-auth">
+      <div class="auth-container">
+        <!-- Left Div: Form -->
+        <div class="auth-form">
+          <form id="authForm">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <!-- Register Mode: Confirm Password (hidden by default) -->
+            <div class="form-group" id="password-confirm-group" style="display: none;">
+              <label for="passwordConfirm">Confirm Password</label>
+              <input type="password" id="passwordConfirm" name="passwordConfirm"  />
+            </div>
+            <button type="submit" id="confirm-btn">Confirm</button>
+          </form>
+        </div>
+
+        <!-- Right Div: Mode Toggle -->
+        <div class="auth-toggle">
+          <p id="toggleText">Don't have an account? <br> Register now</p>
+          <button id="toggle-btn">Switch to Register</button>
+        </div>
+      </div>
+  </div>
+
+  <!-- ====================== SERVICES ====================== -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 id="servicesHeading">บริการของเรา</h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/135/135728.png" alt="Train icon" />
+          <h3 id="serviceDomesticTitle">รถไฟภายในประเทศ</h3>
+          <p id="serviceDomesticDesc">เดินทางสะดวกไปยังสถานีหลักทั่วประเทศ</p>
+        </div>
+        <div class="service-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/182/182308.png" alt="Globe icon" />
+          <h3 id="serviceInternationalTitle">รถไฟระหว่างประเทศ</h3>
+          <p id="serviceInternationalDesc">เชื่อมต่อประเทศเพื่อนบ้าน เดินทางง่ายข้ามพรมแดน</p>
+        </div>
+        <div class="service-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/3418/3418846.png" alt="Support icon" />
+          <h3 id="serviceSupportTitle">บริการลูกค้า 24/7</h3>
+          <p id="serviceSupportDesc">พร้อมช่วยเหลือ ให้คำปรึกษาตลอดการเดินทาง</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== ABOUT US ====================== -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 id="aboutHeading">เกี่ยวกับเรา</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p id="aboutDesc">
+            เราเป็นผู้ให้บริการจองตั๋วรถไฟชั้นนำ ที่มีประสบการณ์ยาวนาน
+            มุ่งเน้นให้ผู้โดยสารได้รับความสะดวกสบายและประสบการณ์ที่ดีที่สุด
+          </p>
+          <ul>
+            <li id="networkTitle">เครือข่ายครอบคลุมทั่วประเทศ</li>
+            <li id="sellTitle">ราคาโปร่งใส ไม่มีค่าธรรมเนียมแอบแฝง</li>
+            <li id="systemTitle">ระบบปลอดภัย มั่นใจในการทำธุรกรรม</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="/images/train.webp" alt="About Us" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== Footer ====================== -->
+  <footer id="contact" class="footer">
+    <div class="container footer-content">
+      <div class="footer-info">
+        <h3 id="contactHeading">ติดต่อเรา</h3>
+        <p id="contactPhone">โทร: 0-XXX-XXX-XXX</p>
+        <p id="contactEmail">Email: info@trainbooking.com</p>
+        <p id="contactAddress">ที่อยู่: 123 ถ.สายรถไฟ เขตท่องเที่ยว กรุงเทพฯ 10000</p>
+      </div>
+      <div class="footer-nav">
+        <h3 id="footerMenuHeading">เมนู</h3>
+        <ul>
+          <li><a href="#hero" id="footerNavHome">หน้าแรก</a></li>
+          <li><a href="#popular-trips" id="footerNavPopular">เส้นทางยอดนิยม</a></li>
+          <li><a href="#services" id="footerNavServices">บริการ</a></li>
+          <li><a href="#about" id="footerNavAbout">เกี่ยวกับเรา</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h3 id="footerSocialHeading">ติดตามเรา</h3>
+        <div class="social-icons">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p id="footerCopyright">© 2025 TrainBooking. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script type="module" src="/scripts/index.js"></script>
+  <script type="module" src="/scripts/user/login.js"></script>
+  <script type="module" src="/scripts/user/register.js"></script>
+
+</body>
 </html>

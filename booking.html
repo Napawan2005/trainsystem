@@ -1,0 +1,30 @@
+<!-- ====================== Select ====================== -->
+<section class="navfirst">
+    <div class="navfirst-inside">
+        <form id="searchForm" action="/result" method="post">
+            <div class="form-group">
+                <label for="searchFrom" id="labelSearchFrom">ต้นทาง</label>
+                <select id="searchFrom" name="departure" required>
+                    <option id="optionEmptyFrom" value="">-- เลือกต้นทาง --</option>
+                    <option id="optionBangkok" value="Bangkok">กรุงเทพ</option>
+                    <option id="optionChiangMai" value="Chiang Mai">เชียงใหม่</option>
+                    <option id="optionKorat" value="Korat">โคราช</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="searchTo" id="labelSearchTo">ปลายทาง</label>
+                <select id="searchTo" name="destination" required>
+                    <option id="optionEmptyTo" value="">-- เลือกปลายทาง --</option>
+                    <option id="optionBangkokTo" value="Bangkok">กรุงเทพ</option>
+                    <option id="optionChiangMaiTo" value="Chiang Mai">เชียงใหม่</option>
+                    <option id="optionKoratTo" value="Korat">โคราช</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="searchDate" id="labelSearchDate">วันที่เดินทาง</label>
+                <input type="date" id="searchDate" name="date" required />
+            </div>
+            <button type="submit" class="submit-button" id="btnSearch">ค้นหา</button>
+        </form>
+    </div>
+</section>

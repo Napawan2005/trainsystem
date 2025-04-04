@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Prompt", sans-serif;
+    text-decoration: none;
+}
+
+/* ====================== Header ====================== */
+.navheader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(179, 173, 232);
+    position: fixed;
+    /* ให้ header อยู่ด้านบนตลอด */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* logo*/
+.navtop-left {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    text-shadow: 2px 2px 5px black;
+    /* เงาของตัวอักษรเป็นสีดำ */
+    padding: 10px 20px;
+    /* ปรับ padding เพื่อให้กรอบมีขนาดเหมาะสม */
+    font-weight: bold;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 50px;
+}
+
+/*ล้อดอิน*/
+.login-button {
+    background-color: rgb(221, 78, 1);
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 0.8;
+
+}
+
+/* แปลภาษา */
+.change-TH {
+    background-color: rgb(46, 39, 39);
+    width: 85px;
+    text-align: center;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+/*หน้าหลัก และประวัติการเข้าถึง*/
+.navtop-right ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navtop-right ul>li>a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(54, 41, 165);
+    display: block;
+    /* หรือ block ก็ได้ */
+    width: 150px;
+    /* กำหนดความกว้างตายตัวเท่ากัน */
+    box-sizing: border-box;
+    /* รวม padding ใน width */
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.5s;
+    opacity: 0.8;
+}
+
+
+.navtop-right ul li a:hover,
+.login-button:hover {
+    opacity: 1;
+}
+
+nav navtop-right {
+    width: 500px;
+    height: 50px;
+    display: flex;
+
+}
+
+/* ====================== Select ====================== */
+.navfirst {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/images/Go_to_heaven.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: auto;
+}
+
+.navfirst-inside {
+    background-color: white;
+    padding: 30px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    width: 90%;
+}
+
+/* ====================== ฟอร์ม ====================== */
+.navfirst-inside form {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group select,
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    background-color: rgb(22, 5, 167);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.5s;
+    opacity: 0.8;
+    width: auto;
+    margin-left: auto;
+}
+
+.submit-button:hover {
+    opacity: 1;
+}
+
+/* ====================== popular ====================== */
+.popular-trips {
+    background: #f7f7f7;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.popular-trips h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.popular-trips p {
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.trip-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.trip-item {
+    background: #fff;
+    border-radius: 8px;
+    width: 300px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.trip-item img {
+    width: 100%;
+    display: block;
+}
+
+.trip-item h3 {
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.trip-item p {
+    margin: 0 10px 10px;
+    color: #555;
+}
+
+.trip-item:hover {
+    transform: scale(1.05);
+}
+
