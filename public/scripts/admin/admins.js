@@ -1,11 +1,7 @@
-// admin.js
-
 (() => {
     const dbName = "RouteDB";
     const storeName = "routes";
     let db;
-
-
 
     // Open (or create) the IndexedDB database
     function openDB() {
@@ -28,6 +24,16 @@
                 reject("Database error: " + event.target.errorCode);
             };
         });
+    }
+
+    // Helper function to clear all input fields
+    function clearInputs() {
+        document.getElementById("routeID").value = "";
+        document.getElementById("departure").value = "";
+        document.getElementById("destination").value = "";
+        document.getElementById("date").value = "";
+        document.getElementById("time").value = "";
+        document.getElementById("number_of_seat").value = "";
     }
 
     // Create a new route record
@@ -59,6 +65,7 @@
         request.onsuccess = () => {
             alert("Route created successfully!");
             displayRoutes();
+            clearInputs(); // Clear inputs after creation
         };
         request.onerror = () => {
             alert("Error creating route. The route ID may already exist.");
@@ -100,6 +107,7 @@
             updateRequest.onsuccess = () => {
                 alert("Route updated successfully!");
                 displayRoutes();
+                clearInputs(); // Clear inputs after update
             };
             updateRequest.onerror = () => {
                 alert("Error updating route.");
@@ -124,6 +132,7 @@
         deleteRequest.onsuccess = () => {
             alert("Route deleted successfully!");
             displayRoutes();
+            clearInputs(); // Clear inputs after deletion
         };
         deleteRequest.onerror = () => {
             alert("Error deleting route.");
@@ -146,13 +155,13 @@
             if (cursor) {
                 const route = cursor.value;
                 routesHTML += `<tr>
-          <td>${route.routeID}</td>
-          <td>${route.departure}</td>
-          <td>${route.destination}</td>
-          <td>${route.date}</td>
-          <td>${route.time}</td>
-          <td>${route.number_of_seat}</td>
-        </tr>`;
+                    <td>${route.routeID}</td>
+                    <td>${route.departure}</td>
+                    <td>${route.destination}</td>
+                    <td>${route.date}</td>
+                    <td>${route.time}</td>
+                    <td>${route.number_of_seat}</td>
+                </tr>`;
                 cursor.continue();
             } else {
                 routesHTML += "</table>";
@@ -198,13 +207,13 @@
                 if (match) {
                     foundMatch = true;
                     routesHTML += `<tr>
-                    <td>${route.routeID}</td>
-                    <td>${route.departure}</td>
-                    <td>${route.destination}</td>
-                    <td>${route.date}</td>
-                    <td>${route.time}</td>
-                    <td>${route.number_of_seat}</td>
-                  </tr>`;
+                        <td>${route.routeID}</td>
+                        <td>${route.departure}</td>
+                        <td>${route.destination}</td>
+                        <td>${route.date}</td>
+                        <td>${route.time}</td>
+                        <td>${route.number_of_seat}</td>
+                    </tr>`;
                 }
                 cursor.continue();
             } else {
@@ -216,6 +225,7 @@
                 } else {
                     alert("No routes found.");
                 }
+                clearInputs(); // Clear inputs after search
             }
         };
 
@@ -223,7 +233,6 @@
             alert("Error searching routes.");
         };
     }
-
 
     document.addEventListener("DOMContentLoaded", () => {
         openDB()
