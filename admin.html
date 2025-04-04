@@ -37,14 +37,15 @@
           <td><input type="number" id="routeID" placeholder="Route ID" /></td>
           <td><input type="text" id="departure" placeholder="Departure" /></td>
           <td><input type="text" id="destination" placeholder="Destination" /></td>
-          <td><label for="date">Date:</label><input type="date" id="date" title="Departure date" placeholder="YYYY-MM-DD" /></td>
-          <td><label for="time">Time:</label><input type="time" id="time" title="Departure time" placeholder="HH:MM" /></td>
+          <td><label for="date">Date: <input type="date" id="date" title="Select departure date" /></label></td>
+          <td><label for="time">Time: <input type="time" id="time" placeholder="HH:MM" title="Select departure time" /></label></td>
           <td><input type="number" id="number_of_seat" placeholder="Number of Seats" /></td>
         </tr>
-        <!-- Button Row -->
+        <!-- Button Row: Create, Search, Update, Delete -->
         <tr class="button-row">
           <td colspan="2"><button id="createBtn">Create</button></td>
-          <td colspan="2"><button id="updateBtn">Update</button></td>
+          <td colspan="1"><button id="searchBtn">Search</button></td>
+          <td colspan="1"><button id="updateBtn">Update</button></td>
           <td colspan="2"><button id="deleteBtn">Delete</button></td>
         </tr>
       </table>

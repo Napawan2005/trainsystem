@@ -163,6 +163,66 @@
         };
     }
 
+    // Search routes based on input criteria
+    function searchRoutes() {
+        const routeIDVal = document.getElementById("routeID").value.trim();
+        const departureVal = document.getElementById("departure").value.trim().toLowerCase();
+        const destinationVal = document.getElementById("destination").value.trim().toLowerCase();
+        const dateVal = document.getElementById("date").value.trim();
+        const timeVal = document.getElementById("time").value.trim();
+        const numberSeatVal = document.getElementById("number_of_seat").value.trim();
+
+        const routeListDiv = document.getElementById("routeList");
+        routeListDiv.innerHTML = "";
+
+        const transaction = db.transaction([storeName], "readonly");
+        const store = transaction.objectStore(storeName);
+        const request = store.openCursor();
+        let routesHTML = "<table>";
+        routesHTML += "<tr><th>Route ID</th><th>Departure</th><th>Destination</th><th>Date</th><th>Time</th><th>Seats</th></tr>";
+        let foundMatch = false; // Flag to track if any route is found
+
+        request.onsuccess = (event) => {
+            const cursor = event.target.result;
+            if (cursor) {
+                const route = cursor.value;
+                let match = true;
+                if (routeIDVal && route.routeID !== parseInt(routeIDVal)) match = false;
+                if (departureVal && !route.departure.toLowerCase().includes(departureVal)) match = false;
+                if (destinationVal && !route.destination.toLowerCase().includes(destinationVal)) match = false;
+                if (dateVal && route.date !== dateVal) match = false;
+                if (timeVal && route.time !== timeVal) match = false;
+                if (numberSeatVal && route.number_of_seat !== parseInt(numberSeatVal)) match = false;
+                if (match) {
+                    foundMatch = true;
+                    routesHTML += `<tr>
+                    <td>${route.routeID}</td>
+                    <td>${route.departure}</td>
+                    <td>${route.destination}</td>
+                    <td>${route.date}</td>
+                    <td>${route.time}</td>
+                    <td>${route.number_of_seat}</td>
+                  </tr>`;
+                }
+                cursor.continue();
+            } else {
+                routesHTML += "</table>";
+                routeListDiv.innerHTML = routesHTML;
+                // Alert user based on search results
+                if (foundMatch) {
+                    alert("Routes found!");
+                } else {
+                    alert("No routes found.");
+                }
+            }
+        };
+
+        request.onerror = () => {
+            alert("Error searching routes.");
+        };
+    }
+
+
     document.addEventListener("DOMContentLoaded", () => {
         openDB()
             .then(() => {
@@ -173,6 +233,7 @@
             });
 
         document.getElementById("createBtn").addEventListener("click", createRoute);
+        document.getElementById("searchBtn").addEventListener("click", searchRoutes);
         document.getElementById("updateBtn").addEventListener("click", updateRoute);
         document.getElementById("deleteBtn").addEventListener("click", deleteRoute);
     });
