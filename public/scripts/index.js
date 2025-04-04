@@ -1,5 +1,6 @@
 // index.js
 import { languageManager } from "./lang-swap/language-core.js";
+import { initDatabases } from "./db/initialize-db.js";
 import { lang } from "./lang-swap/lang.js";
 const translations = {
   "th": {
@@ -114,6 +115,8 @@ const translations = {
   }
 };
 
+// index.js
+
 
 // ✅ ทำให้แน่ใจว่า DOM โหลดเสร็จก่อนค่อยทำงาน
 document.addEventListener("DOMContentLoaded", () => {
@@ -135,6 +138,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const passwordConfirmGroup = document.getElementById('password-confirm-group');
   let isLogin = true; // Default mode is Login
 
+  // Initialize databases if not already created
+  initDatabases();
+
   toggleBtn.addEventListener('click', function () {
     if (isLogin) {
       // Switch to Register mode
@@ -151,4 +157,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-

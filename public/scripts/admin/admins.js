@@ -33,7 +33,6 @@
         document.getElementById("destination").value = "";
         document.getElementById("date").value = "";
         document.getElementById("time").value = "";
-        document.getElementById("number_of_seat").value = "";
     }
 
     // Create a new route record
@@ -43,9 +42,8 @@
         const destination = document.getElementById("destination").value;
         const date = document.getElementById("date").value;
         const time = document.getElementById("time").value;
-        const numberOfSeat = document.getElementById("number_of_seat").value;
 
-        if (!routeID || !departure || !destination || !date || !time || !numberOfSeat) {
+        if (!routeID || !departure || !destination || !date || !time) {
             alert("Please fill in all fields.");
             return;
         }
@@ -58,7 +56,7 @@
             destination,
             date,
             time,
-            number_of_seat: parseInt(numberOfSeat)
+            number_of_seat: 48, // Default number of seats
         };
 
         const request = store.add(newRoute);
@@ -83,7 +81,6 @@
         const destination = document.getElementById("destination").value;
         const date = document.getElementById("date").value;
         const time = document.getElementById("time").value;
-        const numberOfSeat = document.getElementById("number_of_seat").value;
 
         const transaction = db.transaction([storeName], "readwrite");
         const store = transaction.objectStore(storeName);
@@ -101,7 +98,6 @@
             data.destination = destination || data.destination;
             data.date = date || data.date;
             data.time = time || data.time;
-            data.number_of_seat = numberOfSeat ? parseInt(numberOfSeat) : data.number_of_seat;
 
             const updateRequest = store.put(data);
             updateRequest.onsuccess = () => {
