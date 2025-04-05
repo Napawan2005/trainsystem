@@ -11,6 +11,7 @@ function updateTexts() {
   document.documentElement.lang = currentLanguage;
   
   const langData = translations[currentLanguage];
+  console.log(langData)
   if (!langData) return;
 
   // Iterate over each key in the language data and update the corresponding element
