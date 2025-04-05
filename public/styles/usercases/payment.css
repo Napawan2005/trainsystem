@@ -14,6 +14,20 @@ header {
     padding: 15px;
     text-align: center;
 }
+/* Right side - button */
+.nav-actions button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .nav-actions button:hover {
+    background-color: #3f9542;
+  }
 
 .payment-container {
     display: flex;
