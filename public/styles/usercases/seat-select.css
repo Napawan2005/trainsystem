@@ -1,61 +1,93 @@
-/* seat-select.css */
-body {
+/*seat-select.css*/
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Noto+Sans+Thai+Looped:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* รีเซ็ตพื้นฐาน */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 0.8px;
+    font-family: "Itim", cursive;
+}
+
+body {
     background: #f4f4f4;
 }
 
+/* Header */
 header {
-    background: #333;
+    background:  #564bbe;
     color: #fff;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Route Info Box */
 .route-info {
-    margin-top: 10px;
+    width: 35vw;
+    background-color: #8570ff;
+    margin: 30px auto;
+    padding: 20px;
+
+    color: white;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Container with two columns: seat layout (left) and summary (right) */
+/* Seat Layout & Summary Container */
 .seat-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
     padding: 20px;
+    gap: 40px;
 }
 
+/* Seat Layout Panel */
 .seat-layout {
-    flex: 1;
     max-width: 600px;
+    flex: 1;
 }
 
+/* Seat Summary Panel */
 .seat-summary {
     width: 300px;
     background: #333;
     color: #fff;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 10px;
     min-height: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .seat-summary h2 {
     margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
 }
 
+/* Confirm Button */
 #confirm-btn {
-    margin-top: 15px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
     padding: 10px 20px;
-    background: #008CBA;
-    color: #fff;
+    border-radius: 6px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #confirm-btn:hover {
-    background: #007B9E;
+    background-color: #0056b3;
 }
 
+/* Seat Map Table */
 .seat-map table {
     margin: 0 auto;
     border-collapse: collapse;
@@ -70,34 +102,46 @@ header {
     padding: 2px;
 }
 
+/* Seat Buttons */
 .seat {
     width: 100%;
     height: 100%;
     border: none;
     font-weight: bold;
+    border-radius: 6px;
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-/* Base colors for each seat class */
+.seat:hover:not(.taken) {
+    transform: scale(1.05);
+}
+
+/* Seat Type Coloring */
 .seat-A {
     background-color: gold;
 }
 
 .seat-B {
-    background-color: lightyellow;
+    background-color: #fff9c4;
 }
 
 .seat-C {
-    background-color: cyan;
+    background-color: #d3fafa;
 }
 
-/* When a seat is selected */
+/* Selected & Taken */
 .seat.selected {
     background-color: green !important;
     color: #fff;
 }
 
-/* Styling for spaces and entry rows */
+.seat.taken {
+    background-color: #ccc !important;
+    cursor: not-allowed;
+}
+
+/* Blank & Entry */
 .space {
     background: #f4f4f4;
     border: none;
@@ -108,15 +152,11 @@ header {
     font-weight: bold;
 }
 
-/* For the seat summary items */
+/* Summary: Selected Seats List */
 #selected-seats div {
     margin: 5px 0;
-    background: #444;
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.seat.taken {
-    background-color: #ccc !important;
-    cursor: not-allowed;
+    background: #5b5b5b;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 14px;
 }

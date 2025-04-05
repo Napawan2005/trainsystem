@@ -2,12 +2,14 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #222;
+    background: radial-gradient(circle at center, #5c4ccf 0%, #1a1a2e 100%);
+    letter-spacing: 0.8px;
+    font-family: "Itim", cursive;
     color: #fff;
 }
 
 header {
-    background: #333;
+    background: rgb(139, 126, 255);
     color: #fff;
     padding: 15px;
     text-align: center;
@@ -21,7 +23,7 @@ header {
 }
 
 .payment-box {
-    background: #444;
+    background: #2e2e2e;
     padding: 20px;
     border-radius: 8px;
     width: 400px;

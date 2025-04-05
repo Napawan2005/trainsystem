@@ -1,6 +1,7 @@
 /* buy-history.css */
 body {
-    font-family: Arial, sans-serif;
+    letter-spacing: 0.8px;
+    font-family: "Itim", cursive;
     background: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -8,19 +9,35 @@ body {
 
 
 header {
-    background: #333;
+    background: rgb(139, 126, 255);
     color: #fff;
     padding: 20px;
     text-align: center;
 }
 
+.navbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* จัดแนวตั้ง */
+    align-items: center;     /* จัดแนวนอน */
+    justify-content: space-evenly; /* ระยะห่างเท่ากันทุกตัว */
+    gap: 40px;
+}
 .navbar ul {
+    /* จัดแนวนอน */
+    width: 35vw;
     list-style: none;
     background: #444;
     padding: 10px;
     display: flex;
     justify-content: center;
     margin: 0;
+    justify-content: space-evenly; /* ระยะห่างเท่ากันทุกตัว */
+
+}
+
+.navbar ul #index {
+    background: linear-gradient(to top, #a698f9, #7166dc);
 }
 
 .navbar ul li {

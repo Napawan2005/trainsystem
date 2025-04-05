@@ -1,5 +1,7 @@
 /* Reset defaults */
 * {
+    letter-spacing: 0.8px;
+    font-family: "Itim", cursive;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
