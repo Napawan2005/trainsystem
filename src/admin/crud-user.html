@@ -11,18 +11,18 @@
   <body>
     <!-- Admin Dashboard Title -->
     <header>
-      <h1>User Dashboard</h1>
+      <h1 id = "userDashboard">User Dashboard</h1>
     </header>
 
     <!-- Navigation Bar -->
     <nav class="admin-navbar">
       <ul>
-        <li><a href="/src/admin/crud-route.html">CRUD Route</a></li>
-        <li><a href="/src/admin/ticket-ordered.html">Sold History Ticket</a></li>
-        <li><a href="/src/admin/edit-seat.html">Edit Seat Price</a></li>
+        <li><a href="/src/admin/crud-route.html" id = "">CRUD Route</a></li>
+        <li><a href="/src/admin/ticket-ordered.html" id = "soldHistoryTicket">Sold History Ticket</a></li>
+        <li><a href="/src/admin/edit-seat.html" id = "editSeatPrice">Edit Seat Price</a></li>
         <li class="spacer"></li>
-        <li><a href="/index.html">Back to Main Page</a></li>
-        <li><a href="#" id="logout-btn">Logout</a></li>
+        <li><a href="/index.html" id = "backToMainPage">Back to Main Page</a></li>
+        <li><a href="#" id="logout-btn" id = "logOut">Logout</a></li>
         <div class="nav-actions">
           <button class="change-TH" id="translate-btn">Translate</button>
         </div>
@@ -31,8 +31,8 @@
 
     <!-- Default CRUD User Information Content -->
     <section class="crud-user">
-      <h2>CRUD User Information</h2>
-      <p>This is the default admin content for managing User information.</p>
+      <h2 id = "userInformation">CRUD User Information</h2>
+      <p id = "titel">This is the default admin content for managing User information.</p>
     </section>
 
     <!-- User Table for CRUD Operations -->
@@ -44,20 +44,20 @@
           <td><input type="text" id="username" placeholder="username" /></td>
           <td><input type="text" id="password" placeholder="password" /></td>
           <td>
-            <label for="role">Choose a role: </label>
+            <label for="role" id = "choose">Choose a role: </label>
             <select name="role" id="role">
-              <option value="">Role</option>
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
+              <option value="" id = "roleT">Role</option>
+              <option value="user" id = "userT">User</option>
+              <option value="admin" id = "adminT">Admin</option>
             </select>
           </td>
         </tr>
         <!-- Button Row: Create, Search, Update, Delete -->
         <tr class="button-row">
-          <td colspan="2"><button id="createBtn">Create</button></td>
-          <td colspan="1"><button id="searchBtn">Search</button></td>
-          <td colspan="1"><button id="updateBtn">Update</button></td>
-          <td colspan="2"><button id="deleteBtn">Delete</button></td>
+          <td colspan="2"><button id="createBtn" id = "create">Create</button></td>
+          <td colspan="1"><button id="searchBtn" id = "search">Search</button></td>
+          <td colspan="1"><button id="updateBtn" id = "update">Update</button></td>
+          <td colspan="2"><button id="deleteBtn" id = "delect">Delete</button></td>
         </tr>
       </table>
       <!-- Div to display the list of users -->
@@ -66,5 +66,7 @@
 
     <script type="module" src="/scripts/admin/user-crud.js"></script>
     <script src="/scripts/usecases/logout.js"></script>
+    <script src="/scripts/lang-swap/index-lang.js"></script>
+
   </body>
 </html>

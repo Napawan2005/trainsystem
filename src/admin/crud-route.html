@@ -11,18 +11,18 @@
   <body>
     <!-- Admin Dashboard Title -->
     <header>
-      <h1>Admin Dashboard</h1>
+      <h1 id = "adminDashdoard">Admin Dashboard</h1>
     </header>
 
     <!-- Navigation Bar -->
     <nav class="admin-navbar">
       <ul>
-        <li><a href="/src/admin/crud-user.html">CRUD User DB Management</a></li>
-        <li><a href="/src/admin/ticket-ordered.html">Sold History Ticket</a></li>
-        <li><a href="/src/admin/edit-seat.html">Edit Seat Price</a></li>
+        <li><a href="/src/admin/crud-user.html" id = "userDBmanagement">CRUD User DB Management</a></li>
+        <li><a href="/src/admin/ticket-ordered.html" id = "soldHistory">Sold History Ticket</a></li>
+        <li><a href="/src/admin/edit-seat.html" id = "editSeatPrice">Edit Seat Price</a></li>
         <li class="spacer"></li>
-        <li><a href="/index.html">Back to Main Page</a></li>
-        <li><a href="#" id="logout-btn">Logout</a></li>
+        <li><a href="/index.html" id = "backToMainPage">Back to Main Page</a></li>
+        <li><a href="#" id="logout-btn" id = "logOut">Logout</a></li>
         <div class="nav-actions">
           <button class="change-TH" id="translate-btn">Translate</button>
         </div>
@@ -31,8 +31,8 @@
 
     <!-- Default CRUD Route Information Content -->
     <section class="crud-route">
-      <h2>CRUD Route Information</h2>
-      <p>This is the default admin content for managing route information.</p>
+      <h2 id = "CRUDrouteInformation">CRUD Route Information</h2>
+      <p id = "thisIstheDefult">This is the default admin content for managing route information.</p>
       <!-- Additional CRUD functionalities for routes can be implemented here -->
     </section>
 
@@ -44,8 +44,8 @@
           <td><input type="number" id="routeID" placeholder="Route ID" /></td>
           <td><input type="text" id="departure" placeholder="Departure" /></td>
           <td><input type="text" id="destination" placeholder="Destination" /></td>
-          <td><label for="date">Date: <input type="date" id="date" title="Select departure date" /></label></td>
-          <td><label for="time">Time: <input type="time" id="time" placeholder="HH:MM" title="Select departure time" /></label></td>
+          <td><label for="date" id = "data_">Date: <input type="date" id="date" title="Select departure date" /></label></td>
+          <td><label for="time" id = "time_">Time: <input type="time" id="time" placeholder="HH:MM" title="Select departure time" /></label></td>
         </tr>
         <!-- Button Row: Create, Search, Update, Delete -->
         <tr class="button-row">
@@ -58,8 +58,9 @@
       <!-- Div to display the list of routes -->
       <div id="routeList"></div>
     </div>
-
     <script type="module" src="/scripts/admin/route-crud.js"></script>
         <script src="/scripts/usecases/logout.js"></script>
+        <script src="/scripts/lang-swap/index-lang.js"></script>
+
   </body>
 </html>

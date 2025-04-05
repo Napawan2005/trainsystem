@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ticket Ordered - Admin Dashboard</title>
+    <title >Ticket Ordered - Admin Dashboard</title>
     <link rel="stylesheet" href="/styles/admin/ticket-ordered-history.css" />
     <!-- Include admin-auth.js to restrict access -->
     <script src="/scripts/admin/admin-auth.js"></script>
   </head>
   <body>
     <header>
-      <h1>Ticket Ordered</h1>
+      <h1 id = "ticketOrder">Ticket Ordered</h1>
     </header>
 
     <nav class="admin-navbar">
       <ul>
-        <li><a href="/src/admin/crud-route.html">CRUD Route DB Management</a></li>
-        <li><a href="/src/admin/crud-user.html">CRUD User DB Managment</a></li>
+        <li><a href="/src/admin/crud-route.html" id = "routeDB">CRUD Route DB Management</a></li>
+        <li><a href="/src/admin/crud-user.html" id = "routeUser">CRUD User DB Managment</a></li>
         <li class="spacer"></li>
-        <li><a href="/index.html">Back to Main Page</a></li>
+        <li><a href="/index.html" id = "backToMain">Back to Main Page</a></li>
         <div class="nav-actions">
           <button class="change-TH" id="translate-btn">Translate</button>
         </div>
@@ -26,7 +26,7 @@
     </nav>
 
     <section class="search-section">
-      <h2>Search Tickets</h2>
+      <h2 id = "searchTicket">Search Tickets</h2>
       <div class="search-form">
         <input type="number" id="ticketID" placeholder="Ticket ID" />
         <input type="number" id="routeID" placeholder="Route ID" />
@@ -38,10 +38,13 @@
     </section>
 
     <section class="results-section">
-      <h2>Ticket Records</h2>
+      <h2 id = "ticketRecords">Ticket Records</h2>
       <div id="ticketList"></div>
     </section>
 
     <script type="module" src="/scripts/admin/ticket-ordered-history.js"></script>
+    <script src="/scripts/lang-swap/index-lang.js"></script>
+
+
   </body>
 </html>

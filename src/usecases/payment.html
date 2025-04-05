@@ -7,7 +7,7 @@
   </head>
   <body>
     <header>
-      <h1>Payment Information</h1>
+      <h1 id = "payment">Payment Information</h1>
       <div class="nav-actions">
         <button class="change-TH" id="translate-btn">Translate</button>
       </div>
@@ -15,12 +15,12 @@
 
     <main class="payment-container">
       <div class="payment-box">
-        <h2>Booking Summary</h2>
+        <h2 id = "summary">Booking Summary</h2>
         <div id="booking-details"></div>
         <div class="price-info">
-          <p>Subtotal: $<span id="subtotal">0</span></p>
-          <p>VAT (7%): $<span id="vat-amount">0</span></p>
-          <p>Total: $<span id="final-total">0</span></p>
+          <p >Subtotal: $<span id="subtotal">0</span></p>
+          <p >VAT (7%): $<span id="vat-amount">0</span></p>
+          <p >Total: $<span id="final-total">0</span></p>
         </div>
         <div class="payment-actions">
           <button id="cancel-btn">Cancel</button>
@@ -28,7 +28,8 @@
         </div>
       </div>
     </main>
+    <script src="/scripts/usecases/payment.js"></script>
+    <script src="/scripts/lang-swap/index-lang.js"></script>
 
-    <script type="module" src="/scripts/usecases/payment.js"></script>
   </body>
 </html>

@@ -8,12 +8,12 @@
   </head>
   <body>
     <header>
-      <h1>Select Your Seat</h1>
+      <h1 id="seatSelection">Select Your Seat</h1>
       <div class="route-info">
-        <p>Departure: <span id="departure"></span></p>
-        <p>Destination: <span id="destination"></span></p>
-        <p>Date: <span id="date"></span></p>
-        <p>Time: <span id="time"></span></p>
+        <p id ="departureT">Departure: <span id="departure"></span></p>
+        <p id = "destinationT">Destination: <span id="destination"></span></p>
+        <p id = "dateT">Date: <span id="date"></span></p>
+        <p id = "timeT">Time: <span id="time"></span></p>
       </div>
       <div class="nav-actions">
         <button class="change-TH" id="translate-btn">Translate</button>
@@ -23,7 +23,7 @@
     <main class="seat-container">
       <!-- Left Column: Seat Layout -->
       <div class="seat-layout">
-        <h2>Seat Layout</h2>
+        <h2 id = "seatLayout">Seat Layout</h2>
         <div class="seat-map">
           <table>
             <!-- Class A Seats -->
@@ -145,13 +145,15 @@
 
       <!-- Right Column: Summary Box -->
       <div class="seat-summary">
-        <h2>Selected Seats</h2>
+        <h2 id = "select">Selected Seats</h2>
         <div id="selected-seats"></div>
-        <h2>Total Price: $<span id="total-price">0</span></h2>
+        <h2 >Total Price: $<span id="total-price">0</span></h2>
         <button id="confirm-btn">Confirm</button>
       </div>
     </main>
-
+   
+    <script type="module" src="/scripts/lang-swap/index-lang.js"></script>
     <script type="module" src="/scripts/usecases/seat-select.js"></script>
+    
   </body>
 </html>

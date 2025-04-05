@@ -8,22 +8,22 @@
   </head>
   <body>
     <header>
-      <h1>Booking Page</h1>
+      <h1 id = "bookingPage">Booking Page</h1>
     </header>
 
     <nav class="navbar">
       <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/src/user/buy-history.html">History</a></li>
-        <li><a href="#" id="logout-btn">Logout</a></li>
+        <li><a href="/index.html" id = "Homebooking">Home</a></li>
+        <li><a href="/src/user/buy-history.html" id = "Historybookin">History</a></li>
+        <li><a href="#" id="logout-btnbooking">Logout</a></li>
         <div class="nav-actions">
-          <button class="change-TH" id="translate-btn">Translate</button>
+          <button class="change-TH" id="translate-btn-booking">Translate</button>
         </div>
       </ul>
     </nav>
 
     <section class="search-section">
-      <h2>Search Available Routes</h2>
+      <h2 id = "">Search Available Routes</h2>
       <div class="search-form">
         <input type="text" id="departure" placeholder="Departure" />
         <input type="text" id="destination" placeholder="Destination" />
@@ -34,12 +34,14 @@
 
 
     <section class="results-section">
-      <h2>Available Routes</h2>
+      <h2 id = "availableRoutes">Available Routes</h2>
       <div id="results"></div>
     </section>
 
     <script type="module" src="/scripts/usecases/booking.js"></script>
     <script src="/scripts/usecases/logout.js"></script>
+    <script src="/scripts/lang-swap/index-lang.js"></script>
+
 
   </body>
 </html>
