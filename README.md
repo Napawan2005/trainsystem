@@ -48,7 +48,7 @@ Welcome to the **Go to Heaven Project**! This project is a web-based application
    This project uses Vite for development. Install the necessary dependencies by running:
 
    ```bash
-   npm install
+   npm install &&  npm i
    ```
 
 3. **Run the Development Server:**
