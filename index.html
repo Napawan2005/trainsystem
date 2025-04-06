@@ -2,25 +2,33 @@
 <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Go To Heaven</title>
-        <link rel="stylesheet" href="/styles/index.css" />
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Go To Heaven</title>
+      <link rel="stylesheet" href="/styles/index.css" />
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     </head>
 
-<body>
+<body class="bg-gradient-to-l from-cyan-500 via-purple-500 to-neutral-300 ">
   <!-- ====================== Header ====================== -->
-    <nav class="navbar">
-      <div class="nav-links">
-        <a href="/index.html">Go to Heaven</a>
-      </div>
-      <div class="nav-actions">
-        <button class="change-TH" id="translate-btn">Translate</button>
-      </div>
-    </nav>
+  <nav class="flex justify-between items-center px-4 py-2">
+    <div class="nav-links">
+      <a href="/index.html" class="text-lg font-medium text-gray-700">Go to Heaven</a>
+    </div>
+    <div class="nav-actions">
+      <button class="change-TH px-4 py-2 bg-blue-500 text-white rounded" id="translate-btn">Translate</button>
+    </div>
+  </nav>
 
-  <div class="user-auth">
-      <div class="auth-container">
+  <div class="flex justify-center items-center">
+    <h1 class="text-5xl font-bold cartoon-font">
+      Go to Heaven Train Route System
+    </h1>
+  </div>
+
+  <div class="user-auth ">
+    <div class="auth-container">
         <!-- Left Div: Form -->
         <div class="auth-form">
           <form id="authForm">
