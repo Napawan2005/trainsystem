@@ -6,6 +6,9 @@ let translations = {};
 export async function loadTranslations() {
     const res = await fetch("/lang-swap-data/lang.json");
     translations = await res.json();
+    console.log("translate = " + translations);
+    console.log("res " + res);
+    console.log("langstorage = " + langStorage.get());
     applyTranslations(langStorage.get());
 }
 

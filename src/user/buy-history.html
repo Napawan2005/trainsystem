@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ticket Purchase History - Go to Heaven</title>
+    <title data-i18n="TPH">Ticket Purchase History - Go to Heaven</title>
     <link rel="stylesheet" href="/styles/user/buy-history.css" />
     <!-- Optionally, include a login check script -->
     <script src="/scripts/user/check-login.js"></script>
@@ -13,18 +13,17 @@
 
 <body>
     <header>
-        <h1 id = "historyTitle" style="font-size: xx-large;">Your Ticket Purchase History</h1>
+        <h1 data-i18n="YTPH" id="historyTitle" style="font-size: xx-large;">Your Ticket Purchase History</h1>
         <nav class="navbar">
             <ul>
-                <li><a href="/src/usecases/booking.html" id="Home">Home</a></li>
-                <li><a href="/src/usecases/booking.html" id="book">Booking</a></li>
-                <li><a href="#" id="logout-btn" id="logOut">Logout</a></li>
+                <li><a data-i18n="H" href="/index.html" id="Home">Home</a></li>
+                <li><a data-i18n="B" href="/src/usecases/booking.html" id="book">Booking</a></li>
+                <li><a data-i18n="LO" href="#" id="logout-btn">Logout</a></li>
                 
             </ul>
-        </nav>
 
           <div class="nav-actions">
-            <button class="change-TH" id="translate-bth">Translate</button>
+            <button data-i18n="translate" class="change-TH" id="translate-btn">Translate</button>
           </div>
         </nav>
     </header>
@@ -33,7 +32,7 @@
     </main>
     <script type="module" src="/scripts/user/buy-history.js"></script>
     <script src="/scripts/usecases/logout.js"></script>
-    <script src="/public/scripts/lang-swap/index-lang.js"></script>
+    <script type="module" src="/scripts/lang-swap/i18n.js"></script>
 </body>
 
 </html>

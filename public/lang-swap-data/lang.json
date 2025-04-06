@@ -28,7 +28,13 @@
     "Menu": "Menu",
     "AboutUs": "About Us",
     "FollowUS": "Follow Us",
-    "Copyright": "© 2025 TrainBooking. All Rights Reserved."
+    "Copyright": "© 2025 TrainBooking. All Rights Reserved.",
+    "TPH": "Ticket Purchase History - Go to Heaven",
+    "YTPH": "Your Ticket Purchase History",
+    "H": "Home",
+    "B": "Booking",
+    "LO": "Logout",
+    "TSL": "Translate"
   },
   "th": {
     "title": "ยินดีต้อนรับสู่สวรรค์",
@@ -59,6 +65,12 @@
     "Menu": "เมนู",
     "AboutUs": "เกี่ยวกับเรา",
     "FollowUS": "ติดตามเรา",
-    "Copyright": "© 2025 TrainBooking. สงวนลิขสิทธิ์"
+    "Copyright": "© 2025 TrainBooking. สงวนลิขสิทธิ์",
+    "TPH": "ประวัติการซื้อตั๋ว - Go to Heaven",
+    "YTPH": "ประวัติการซื้อตั๋วของคุณ",
+    "H": "หน้าหลัก",
+    "B": "การจอง",
+    "LO": "ออกจากระบบ",
+    "TSL": "แปล"
   }
 }
