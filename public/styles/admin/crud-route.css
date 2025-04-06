@@ -1,9 +1,10 @@
 /* Reset defaults */
 
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Thai+Looped:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
   letter-spacing: 0.8px;
-    font-family: "Itim", cursive;
+  font-family: "Itim", cursive;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,14 +12,14 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #fafafa;
+  background-color: #ffffff;
   color: #333;
 }
 
 /* Header Styling */
 header {
   background: radial-gradient(circle at center, #5c4ccf 0%, #1a1a2e 100%);
-  
+
   color: #fff;
   padding: 30px 20px;
   text-align: center;
@@ -27,6 +28,7 @@ header {
 header h1 {
   font-size: 2.5em;
 }
+
 /* Right side - button */
 .nav-actions button {
   background-color: #4caf50;
@@ -40,6 +42,21 @@ header h1 {
 
 .nav-actions button:hover {
   background-color: #3f9542;
+}
+
+#translate-btn {
+  width: 150px;
+  height: 50px;
+  background-color: #7876ff;
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  font-size: large;
+  transition: background-color 0.3s ease;
+}
+
+#translate-btn:hover {
+  background-color: #6756ff;
 }
 
 /* Navbar Styling */
@@ -112,6 +129,8 @@ header h1 {
   border-collapse: collapse;
 }
 
+
+
 /* Input Row Styling */
 .route-form-table .input-row td {
   padding: 10px;
@@ -153,4 +172,19 @@ header h1 {
 
 #routeList th {
   background-color: #f4f4f4;
+}
+
+.action-btn {
+  background-color: #7876ff;
+  color: white;
+  padding: 0.5rem 1rem;   /* py-2 px-4 */
+  border-radius: 0.375rem; /* rounded */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  margin: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #5a58d6; /* สีตอน hover */
 }
