@@ -95,7 +95,15 @@
     "Subtotal": "Subtotal:",
     "VAT": "VAT (7%):",
     "Total": "Total:",
-    "cancel-btn": "Cancel"
+    "cancel-btn": "Cancel",
+    "bookingPage": "Booking Page",
+    "Home": "Home",
+    "SearchRoutes": "Search Available Routes",
+    "Departure": "Departure:",
+    "Destination": "Destination:",
+    "Time": "Time:",
+    "SearchBtn": "Search",
+    "AvailableRoutes": "Available Routes"
   },
   "th": {
     "title": "ยินดีต้อนรับสู่สวรรค์",
@@ -193,6 +201,14 @@
     "Subtotal": "ยอดรวมย่อย:",
     "VAT": "ภาษีมูลค่าเพิ่ม (7%):",
     "Total": "รวมทั้งหมด:",
-    "cancel-btn": "ยกเลิก"
+    "cancel-btn": "ยกเลิก",
+    "bookingPage": "หน้าการจอง",
+    "Home": "หน้าหลัก",
+    "SearchRoutes": "ค้นหาเส้นทางที่มีให้บริการ",
+    "Departure": "ออกเดินทาง:",
+    "Destination": "ปลายทาง:",
+    "Time": "เวลา:",
+    "SearchBtn": "ค้นหา",
+    "AvailableRoutes": "เส้นทางที่มีให้บริการ"
   }
 }
