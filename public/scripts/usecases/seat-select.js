@@ -159,7 +159,7 @@
                 results.forEach((item) => {
                     totalPrice += item.price;
                     const seatItem = document.createElement("div");
-                    seatItem.textContent = `${item.seat.seatId} (Class ${item.seat.seatClass}) - $${item.price}`;
+                    seatItem.textContent = `${item.seat.seatId} (Class ${item.seat.seatClass}) - ${item.price}` + " THB";
                     summaryContainer.appendChild(seatItem);
 
                     // Mark seat as selected (in case user refreshed)

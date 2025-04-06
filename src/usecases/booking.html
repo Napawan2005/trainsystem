@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Booking - Go to Heaven</title>
-    <link rel="stylesheet" href="/styles/usercases/booking.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Booking Page</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking - Go to Heaven</title>
+  <link rel="stylesheet" href="/styles/usercases/booking.css" />
+  <script src="/scripts/user/check-login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+<header>
+  <h1 data-i18n="bookingPage" id="bookingPage" style="font-size: xx-large; font-weight:bold;">Booking Page</h1>
+  <div class="nav-actions">
+    <button data-i18n="translate" id="translate-btn">Translate</button>
+  </div>
+  <nav class="navbar">
+    <ul>
+      <li><a data-i18n="Home" href="/index.html" id="Home">Home</a></li>
+      <li><a data-i18n="History" href="/src/user/buy-history.html" id="book">History</a></li>
+      <li><a data-i18n="LO" href="#" id="logout-btn">Logout</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/src/user/buy-history.html">History</a></li>
-        <li><a href="#" id="logout-btn">Logout</a></li>
-      </ul>
-    </nav>
+<section class="search-section" style="margin-top: 15vh;">
+  <h2 data-i18n="SearchRoutes" style="font-size: larger; font-weight:bold;">Search Available Routes</h2>
+  <div class="search-form">
+    <label data-i18n="Departure" for="departure">Departure:</label>
+    <input type="text" id="departure" placeholder="Departure" style="background-color: beige;"/>
+    <label data-i18n="Destination" for="destination">Destination:</label>
+    <input type="text" id="destination" placeholder="Destination" style="background-color: beige;"/>
+    <label data-i18n="Time" for="time">Time:</label>
+    <input type="time" id="time" placeholder="Time" style="background-color: beige;"/>
+    <button data-i18n="SearchBtn" id="searchBtn">Search</button>
+  </div>
+</section>
 
-    <section class="search-section">
-      <h2>Search Available Routes</h2>
-      <div class="search-form">
-        <input type="text" id="departure" placeholder="Departure" />
-        <input type="text" id="destination" placeholder="Destination" />
-        <input type="time" id="time" placeholder="Time" />
-        <button id="searchBtn">Search</button>
-      </div>
-    </section>
+<section class="results-section">
+  <h2 data-i18n="AvailableRoutes" id="availableRoutes" style="font-size: larger; font-weight:bold;">Available Routes</h2>
+  <div id="results"></div>
+</section>
 
-
-    <section class="results-section">
-      <h2>Available Routes</h2>
-      <div id="results"></div>
-    </section>
-
-    <script type="module" src="/scripts/usecases/booking.js"></script>
-    <script src="/scripts/usecases/logout.js"></script>
-
-  </body>
+<script type="module" src="/scripts/usecases/booking.js"></script>
+<script src="/scripts/usecases/logout.js"></script>
+<script type="module" src="/scripts/lang-swap/i18n.js"></script>
+</body>
 </html>

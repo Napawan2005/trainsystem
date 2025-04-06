@@ -58,7 +58,7 @@
                     };
 
                     getRequest.onerror = () => {
-                        console.error("Error retrieving user data");
+                        console.error("Error retrieving user lang-swap-data");
                     };
                 } catch (err) {
                     console.error("Error accessing database:", err);

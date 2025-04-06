@@ -61,7 +61,7 @@ function initSeatClassDB() {
             const db = event.target.result;
             if (!db.objectStoreNames.contains("seatClass")) {
                 const store = db.createObjectStore("seatClass", { keyPath: "class" });
-                // Add initial data for seat classes
+                // Add initial lang-swap-data for seat classes
                 store.add({ class: "A", price: 300 });
                 store.add({ class: "B", price: 200 });
                 store.add({ class: "C", price: 100 });

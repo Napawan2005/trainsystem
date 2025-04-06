@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ticket Purchase History - Go to Heaven</title>
+    <title data-i18n="TPH">Ticket Purchase History - Go to Heaven</title>
     <link rel="stylesheet" href="/styles/user/buy-history.css" />
     <!-- Optionally, include a login check script -->
     <script src="/scripts/user/check-login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
-<header>
-    <h1>Your Ticket Purchase History</h1>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/src/usecases/booking.html">Booking</a></li>
-            <li><a href="#" id="logout-btn">Logout</a></li>
-        </ul>
-    </nav>
-</header>
-<main>
-    <div id="history-container"></div>
-</main>
-<script type="module" src="/scripts/user/buy-history.js"></script>
-<script src="/scripts/usecases/logout.js"></script>
+    <header>
+        <h1 data-i18n="YTPH" id="historyTitle" style="font-size: xx-large;">Your Ticket Purchase History</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a data-i18n="H" href="/index.html" id="Home">Home</a></li>
+                <li><a data-i18n="B" href="/src/usecases/booking.html" id="book">Booking</a></li>
+                <li><a data-i18n="LO" href="#" id="logout-btn">Logout</a></li>
+                
+            </ul>
+
+          <div class="nav-actions">
+            <button data-i18n="translate" class="change-TH" id="translate-btn">Translate</button>
+          </div>
+        </nav>
+    </header>
+    <main>
+        <div id="history-container" style="margin-top: 8vh;"></div>
+    </main>
+    <script type="module" src="/scripts/user/buy-history.js"></script>
+    <script src="/scripts/usecases/logout.js"></script>
+    <script type="module" src="/scripts/lang-swap/i18n.js"></script>
 </body>
+
 </html>

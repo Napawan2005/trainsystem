@@ -1,62 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard - Go to Heaven</title>
-    <link rel="stylesheet" href="/styles/admin/crud-route.css" />
-        <!-- Include admin-auth.js first to validate the admin user -->
-    <script src="/scripts/admin/admin-auth.js"></script>
-  </head>
-  <body>
-    <!-- Admin Dashboard Title -->
-    <header>
-      <h1>Admin Dashboard</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Go to Heaven</title>
+  <link rel="stylesheet" href="/styles/admin/crud-route.css" />
+  <!-- Include admin-auth.js first to validate the admin user -->
+  <script src="/scripts/admin/admin-auth.js"></script>
+  <!-- Official Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<!-- Admin Dashboard Title -->
+<header class="p-4">
+  <h1 data-i18n="adminDashboard" id="adminDashboard" class="text-3xl font-bold">
+    Route Management Dashboard
+  </h1>
+</header>
 
-    <!-- Navigation Bar -->
-    <nav class="admin-navbar">
-      <ul>
-        <li><a href="/src/admin/crud-user.html">CRUD User DB Management</a></li>
-        <li><a href="/src/admin/ticket-ordered.html">Sold History Ticket</a></li>
-        <li><a href="/src/admin/edit-seat.html">Edit Seat Price</a></li>
-        <li class="spacer"></li>
-        <li><a href="/index.html">Back to Main Page</a></li>
-        <li><a href="#" id="logout-btn">Logout</a></li>
-      </ul>
-    </nav>
+<!-- Navigation Bar -->
+<nav class="admin-navbar bg-gray-100 p-4" style="background-color: #9791ff;">
+  <ul>
+    <li>
+      <a data-i18n="crudUserManagement" href="/src/admin/crud-user.html" id="crudUserManagement">
+        CRUD User DB Management
+      </a>
+    </li>
+    <li>
+      <a data-i18n="editSeatPrice" href="/src/admin/edit-seat.html" id="editSeatPrice">
+        Edit Seat Price
+      </a>
+    </li>
+    <li>
+      <a data-i18n="soldHistoryTicket" href="/src/admin/ticket-ordered.html" id="soldHistoryTicket">
+        Sold History Ticket
+      </a>
+    </li>
+    <li class="spacer"></li>
+    <li>
+      <a data-i18n="backToMainPage" href="/index.html" id="backToMainPage">
+        Back to Main Page
+      </a>
+    </li>
+    <li>
+      <a data-i18n="logout" href="#" id="logout-btn">
+        Logout
+      </a>
+    </li>
+  </ul>
+  <div class="nav-actions">
+    <button data-i18n="translate" class="change-TH" id="translate-btn">
+      Translate
+    </button>
+  </div>
+</nav>
 
-    <!-- Default CRUD Route Information Content -->
-    <section class="crud-route">
-      <h2>CRUD Route Information</h2>
-      <p>This is the default admin content for managing route information.</p>
-      <!-- Additional CRUD functionalities for routes can be implemented here -->
-    </section>
+<!-- Default CRUD Route Information Content -->
+<section class="crud-route p-4">
+  <h2 data-i18n="crudRouteInfoTitle" id="CRUDrouteInformation" class="text-2xl font-semibold mb-2">
+    CRUD Route Information
+  </h2>
+  <p data-i18n="crudRouteInfoDescription" id="thisIstheDefault" class="mb-4">
+    This is the default admin content for managing route information.
+  </p>
+  <!-- Additional CRUD functionalities for routes can be implemented here -->
+</section>
 
-    <!-- Route Table for CRUD Operations -->
-    <div class="route-table">
-      <table class="route-form-table">
-        <!-- Input Row -->
-        <tr class="input-row">
-          <td><input type="number" id="routeID" placeholder="Route ID" /></td>
-          <td><input type="text" id="departure" placeholder="Departure" /></td>
-          <td><input type="text" id="destination" placeholder="Destination" /></td>
-          <td><label for="date">Date: <input type="date" id="date" title="Select departure date" /></label></td>
-          <td><label for="time">Time: <input type="time" id="time" placeholder="HH:MM" title="Select departure time" /></label></td>
-        </tr>
-        <!-- Button Row: Create, Search, Update, Delete -->
-        <tr class="button-row">
-          <td colspan="2"><button id="createBtn">Create</button></td>
-          <td colspan="1"><button id="searchBtn">Search</button></td>
-          <td colspan="1"><button id="updateBtn">Update</button></td>
-          <td colspan="2"><button id="deleteBtn">Delete</button></td>
-        </tr>
-      </table>
-      <!-- Div to display the list of routes -->
-      <div id="routeList"></div>
-    </div>
+<!-- Route Table for CRUD Operations -->
+<div class="route-table p-4">
+  <table class="route-form-table w-full mb-4 border border-gray-200">
+    <tbody>
+    <!-- Input Row -->
+    <tr class="input-row">
+      <td class="p-2 border border-gray-200">
+        <label data-i18n="routeIDLabel" for="routeID">Route ID:</label>
+        <input type="number" id="routeID" placeholder="Route ID" class="w-full p-2" />
+      </td>
+      <td class="p-2 border border-gray-200">
+        <label data-i18n="departureLabel" for="departure">Departure:</label>
+        <input type="text" id="departure" placeholder="Departure" class="w-full p-2" />
+      </td>
+      <td class="p-2 border border-gray-200">
+        <label data-i18n="destinationLabel" for="destination">Destination:</label>
+        <input type="text" id="destination" placeholder="Destination" class="w-full p-2" />
+      </td>
+      <td class="p-2 border border-gray-200">
+        <label data-i18n="dateLabel" for="date" id="data_">
+          Date:
 
-    <script type="module" src="/scripts/admin/route-crud.js"></script>
-        <script src="/scripts/usecases/logout.js"></script>
-  </body>
+        </label>
+        <input type="date" id="date" title="Select departure date" class="p-2" />
+      </td>
+      <td class="p-2 border border-gray-200">
+        <label data-i18n="timeLabel" for="time" id="time_">
+          Time:
+        </label>
+        <input type="time" id="time" placeholder="HH:MM" title="Select departure time" class="p-2" />
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Button Grid -->
+  <div class="grid grid-cols-4 gap-4">
+    <button data-i18n="createButton" id="createBtn" class="action-btn">
+      Create
+    </button>
+    <button data-i18n="searchButton" id="searchBtn" class="action-btn">
+      Search
+    </button>
+    <button data-i18n="updateButton" id="updateBtn" class="action-btn">
+      Update
+    </button>
+    <button data-i18n="deleteButton" id="deleteBtn" class="action-btn">
+      Delete
+    </button>
+  </div>
+
+  <br>
+  <!-- Div to display the list of routes -->
+  <div id="routeList"></div>
+</div>
+
+<!-- Scripts -->
+<script type="module" src="/scripts/admin/route-crud.js"></script>
+<script src="/scripts/usecases/logout.js"></script>
+<script type="module" src="/scripts/lang-swap/i18n.js"></script>
+</body>
 </html>

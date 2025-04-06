@@ -1,154 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seat Selection</title>
-    <link rel="stylesheet" href="/styles/usercases/seat-select.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Select Your Seat</h1>
-      <div class="route-info">
-        <p>Departure: <span id="departure"></span></p>
-        <p>Destination: <span id="destination"></span></p>
-        <p>Date: <span id="date"></span></p>
-        <p>Time: <span id="time"></span></p>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seat Selection</title>
+  <link rel="stylesheet" href="/styles/usercases/seat-select.css" />
+  <script src="/scripts/user/check-login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+<header>
+  <h1 data-i18n="SSL" id="seatSelection" style="font-size: xx-large;">Select Your Seat</h1>
 
-    <main class="seat-container">
-      <!-- Left Column: Seat Layout -->
-      <div class="seat-layout">
-        <h2>Seat Layout</h2>
-        <div class="seat-map">
-          <table>
-            <!-- Class A Seats -->
-            <tr>
-              <td><button class="seat seat-A" data-seat="SA1" data-class="A">SA1</button></td>
-              <td><button class="seat seat-A" data-seat="SA2" data-class="A">SA2</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-A" data-seat="SA3" data-class="A">SA3</button></td>
-              <td><button class="seat seat-A" data-seat="SA4" data-class="A">SA4</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-A" data-seat="SA5" data-class="A">SA5</button></td>
-              <td><button class="seat seat-A" data-seat="SA6" data-class="A">SA6</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-A" data-seat="SA7" data-class="A">SA7</button></td>
-              <td><button class="seat seat-A" data-seat="SA8" data-class="A">SA8</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-A" data-seat="SA9" data-class="A">SA9</button></td>
-              <td><button class="seat seat-A" data-seat="SA10" data-class="A">SA10</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-A" data-seat="SA11" data-class="A">SA11</button></td>
-              <td><button class="seat seat-A" data-seat="SA12" data-class="A">SA12</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-A" data-seat="SA13" data-class="A">SA13</button></td>
-              <td><button class="seat seat-A" data-seat="SA14" data-class="A">SA14</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-A" data-seat="SA15" data-class="A">SA15</button></td>
-              <td><button class="seat seat-A" data-seat="SA16" data-class="A">SA16</button></td>
-            </tr>
-            <!-- Entry/Exit Row -->
-            <tr>
-              <td colspan="2" class="entry">===</td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td colspan="2" class="entry">===</td>
-            </tr>
-            <!-- Class B Seats -->
-            <tr>
-              <td><button class="seat seat-B" data-seat="SB1" data-class="B">SB1</button></td>
-              <td><button class="seat seat-B" data-seat="SB2" data-class="B">SB2</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-B" data-seat="SB3" data-class="B">SB3</button></td>
-              <td><button class="seat seat-B" data-seat="SB4" data-class="B">SB4</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-B" data-seat="SB5" data-class="B">SB5</button></td>
-              <td><button class="seat seat-B" data-seat="SB6" data-class="B">SB6</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-B" data-seat="SB7" data-class="B">SB7</button></td>
-              <td><button class="seat seat-B" data-seat="SB8" data-class="B">SB8</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-B" data-seat="SB9" data-class="B">SB9</button></td>
-              <td><button class="seat seat-B" data-seat="SB10" data-class="B">SB10</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-B" data-seat="SB11" data-class="B">SB11</button></td>
-              <td><button class="seat seat-B" data-seat="SB12" data-class="B">SB12</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-B" data-seat="SB13" data-class="B">SB13</button></td>
-              <td><button class="seat seat-B" data-seat="SB14" data-class="B">SB14</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-B" data-seat="SB15" data-class="B">SB15</button></td>
-              <td><button class="seat seat-B" data-seat="SB16" data-class="B">SB16</button></td>
-            </tr>
-            <!-- Entry/Exit Row -->
-            <tr>
-              <td colspan="2" class="entry">===</td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td colspan="2" class="entry">===</td>
-            </tr>
-            <!-- Class C Seats -->
-            <tr>
-              <td><button class="seat seat-C" data-seat="SC1" data-class="C">SC1</button></td>
-              <td><button class="seat seat-C" data-seat="SC2" data-class="C">SC2</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-C" data-seat="SC3" data-class="C">SC3</button></td>
-              <td><button class="seat seat-C" data-seat="SC4" data-class="C">SC4</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-C" data-seat="SC5" data-class="C">SC5</button></td>
-              <td><button class="seat seat-C" data-seat="SC6" data-class="C">SC6</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-C" data-seat="SC7" data-class="C">SC7</button></td>
-              <td><button class="seat seat-C" data-seat="SC8" data-class="C">SC8</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-C" data-seat="SC9" data-class="C">SC9</button></td>
-              <td><button class="seat seat-C" data-seat="SC10" data-class="C">SC10</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-C" data-seat="SC11" data-class="C">SC11</button></td>
-              <td><button class="seat seat-C" data-seat="SC12" data-class="C">SC12</button></td>
-            </tr>
-            <tr>
-              <td><button class="seat seat-C" data-seat="SC13" data-class="C">SC13</button></td>
-              <td><button class="seat seat-C" data-seat="SC14" data-class="C">SC14</button></td>
-              <td class="space"></td>
-              <td class="space"></td>
-              <td><button class="seat seat-C" data-seat="SC15" data-class="C">SC15</button></td>
-              <td><button class="seat seat-C" data-seat="SC16" data-class="C">SC16</button></td>
-            </tr>
-          </table>
-        </div>
-      </div>
+  <div class="nav-actions">
+    <button data-i18n="translate" id="translate-btn">Translate</button>
+  </div>
+  <nav class="navbar">
+    <ul>
+      <li><a data-i18n="Home" href="/index.html" id="Home">Home</a></li>
+      <li><a data-i18n="History" href="/src/user/buy-history.html" id="book">History</a></li>
+      <li><a data-i18n="LO" href="#" id="logout-btn">Logout</a></li>
+    </ul>
+  </nav>
+  <div style="background-color: white">
+  <div style="display: inline-block; margin-right: 20px; background-color: white; padding: 5px; border-radius: 5px; color: black;">
+    <p data-i18n="DPT" id="departureT" style="display: inline;">Departure:</p>
+    <span id="departure" style="display: inline;"></span>
+  </div>
+  <div style="display: inline-block; margin-right: 20px; background-color: white; padding: 5px; border-radius: 5px; color: black;">
+    <p data-i18n="DTN" id="destinationT" style="display: inline;">Destination:</p>
+    <span id="destination" style="display: inline;"></span>
+  </div>
+  <div style="display: inline-block; margin-right: 20px; background-color: white; padding: 5px; border-radius: 5px; color: black;">
+    <p data-i18n="DATE" id="dateT" style="display: inline;">Date:</p>
+    <span id="date" style="display: inline;"></span>
+  </div>
+  <div style="display: inline-block; margin-right: 20px; background-color: white; padding: 5px; border-radius: 5px; color: black;">
+    <p data-i18n="TIME" id="timeT" style="display: inline;">Time:</p>
+    <span id="time" style="display: inline;"></span>
+  </div>
+  </div>
 
-      <!-- Right Column: Summary Box -->
-      <div class="seat-summary">
-        <h2>Selected Seats</h2>
-        <div id="selected-seats"></div>
-        <h2>Total Price: $<span id="total-price">0</span></h2>
-        <button id="confirm-btn">Confirm</button>
-      </div>
-    </main>
 
-    <script type="module" src="/scripts/usecases/seat-select.js"></script>
-  </body>
+</header>
+
+<main class="seat-container">
+  <!-- Left Column: Seat Layout -->
+  <div class="seat-layout">
+    <h1 data-i18n="SLO" id="seatLayout" style="font-size:xx-large; margin:25px;">Seat Layout</h1>
+    <div class="seat-map">
+      <table>
+        <!-- Class A Seats -->
+        <tr>
+          <td><button data-i18n="SA1" class="seat seat-A" data-seat="SA1" data-class="A">SA1</button></td>
+          <td><button data-i18n="SA2" class="seat seat-A" data-seat="SA2" data-class="A">SA2</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SA3" class="seat seat-A" data-seat="SA3" data-class="A">SA3</button></td>
+          <td><button data-i18n="SA4" class="seat seat-A" data-seat="SA4" data-class="A">SA4</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SA5" class="seat seat-A" data-seat="SA5" data-class="A">SA5</button></td>
+          <td><button data-i18n="SA6" class="seat seat-A" data-seat="SA6" data-class="A">SA6</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SA7" class="seat seat-A" data-seat="SA7" data-class="A">SA7</button></td>
+          <td><button data-i18n="SA8" class="seat seat-A" data-seat="SA8" data-class="A">SA8</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SA9" class="seat seat-A" data-seat="SA9" data-class="A">SA9</button></td>
+          <td><button data-i18n="SA10" class="seat seat-A" data-seat="SA10" data-class="A">SA10</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SA11" class="seat seat-A" data-seat="SA11" data-class="A">SA11</button></td>
+          <td><button data-i18n="SA12" class="seat seat-A" data-seat="SA12" data-class="A">SA12</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SA13" class="seat seat-A" data-seat="SA13" data-class="A">SA13</button></td>
+          <td><button data-i18n="SA14" class="seat seat-A" data-seat="SA14" data-class="A">SA14</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SA15" class="seat seat-A" data-seat="SA15" data-class="A">SA15</button></td>
+          <td><button data-i18n="SA16" class="seat seat-A" data-seat="SA16" data-class="A">SA16</button></td>
+        </tr>
+        <!-- Entry/Exit Row -->
+        <tr>
+          <td colspan="2" class="entry">===</td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td colspan="2" class="entry">===</td>
+        </tr>
+        <!-- Class B Seats -->
+        <tr>
+          <td><button data-i18n="SB1" class="seat seat-B" data-seat="SB1" data-class="B">SB1</button></td>
+          <td><button data-i18n="SB2" class="seat seat-B" data-seat="SB2" data-class="B">SB2</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SB3" class="seat seat-B" data-seat="SB3" data-class="B">SB3</button></td>
+          <td><button data-i18n="SB4" class="seat seat-B" data-seat="SB4" data-class="B">SB4</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SB5" class="seat seat-B" data-seat="SB5" data-class="B">SB5</button></td>
+          <td><button data-i18n="SB6" class="seat seat-B" data-seat="SB6" data-class="B">SB6</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SB7" class="seat seat-B" data-seat="SB7" data-class="B">SB7</button></td>
+          <td><button data-i18n="SB8" class="seat seat-B" data-seat="SB8" data-class="B">SB8</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SB9" class="seat seat-B" data-seat="SB9" data-class="B">SB9</button></td>
+          <td><button data-i18n="SB10" class="seat seat-B" data-seat="SB10" data-class="B">SB10</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SB11" class="seat seat-B" data-seat="SB11" data-class="B">SB11</button></td>
+          <td><button data-i18n="SB12" class="seat seat-B" data-seat="SB12" data-class="B">SB12</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SB13" class="seat seat-B" data-seat="SB13" data-class="B">SB13</button></td>
+          <td><button data-i18n="SB14" class="seat seat-B" data-seat="SB14" data-class="B">SB14</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SB15" class="seat seat-B" data-seat="SB15" data-class="B">SB15</button></td>
+          <td><button data-i18n="SB16" class="seat seat-B" data-seat="SB16" data-class="B">SB16</button></td>
+        </tr>
+        <!-- Entry/Exit Row -->
+        <tr>
+          <td colspan="2" class="entry">===</td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td colspan="2" class="entry">===</td>
+        </tr>
+        <!-- Class C Seats -->
+        <tr>
+          <td><button data-i18n="SC1" class="seat seat-C" data-seat="SC1" data-class="C">SC1</button></td>
+          <td><button data-i18n="SC2" class="seat seat-C" data-seat="SC2" data-class="C">SC2</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SC3" class="seat seat-C" data-seat="SC3" data-class="C">SC3</button></td>
+          <td><button data-i18n="SC4" class="seat seat-C" data-seat="SC4" data-class="C">SC4</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SC5" class="seat seat-C" data-seat="SC5" data-class="C">SC5</button></td>
+          <td><button data-i18n="SC6" class="seat seat-C" data-seat="SC6" data-class="C">SC6</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SC7" class="seat seat-C" data-seat="SC7" data-class="C">SC7</button></td>
+          <td><button data-i18n="SC8" class="seat seat-C" data-seat="SC8" data-class="C">SC8</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SC9" class="seat seat-C" data-seat="SC9" data-class="C">SC9</button></td>
+          <td><button data-i18n="SC10" class="seat seat-C" data-seat="SC10" data-class="C">SC10</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SC11" class="seat seat-C" data-seat="SC11" data-class="C">SC11</button></td>
+          <td><button data-i18n="SC12" class="seat seat-C" data-seat="SC12" data-class="C">SC12</button></td>
+        </tr>
+        <tr>
+          <td><button data-i18n="SC13" class="seat seat-C" data-seat="SC13" data-class="C">SC13</button></td>
+          <td><button data-i18n="SC14" class="seat seat-C" data-seat="SC14" data-class="C">SC14</button></td>
+          <td class="space"></td>
+          <td class="space"></td>
+          <td><button data-i18n="SC15" class="seat seat-C" data-seat="SC15" data-class="C">SC15</button></td>
+          <td><button data-i18n="SC16" class="seat seat-C" data-seat="SC16" data-class="C">SC16</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Right Column: Summary Box -->
+  <div class="seat-summary">
+    <h2 data-i18n="selectseats" id="select">Selected Seats</h2>
+    <div id="selected-seats"></div>
+    <div style="display: inline-block;">
+    <h2 data-i18n="totalPriceLabel" style="display: inline;">Total Price:</h2>
+    <span id="total-price" style="display: inline;">0</span> <p style="display: inline-block;">THB</p>
+  </div>
+
+    <button id="confirm-btn">Confirm</button>
+  </div>
+</main>
+
+<script type="module" src="/scripts/lang-swap/i18n.js"></script>
+<script src="/scripts/usecases/logout.js"></script>
+<script type="module" src="/scripts/usecases/seat-select.js"></script>
+
+</body>
 </html>

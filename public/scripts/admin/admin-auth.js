@@ -1,5 +1,5 @@
 (() => {
-    // Retrieve the logged-in user data from session storage using the correct key
+    // Retrieve the logged-in user lang-swap-data from session storage using the correct key
     const loggedInUserJSON = sessionStorage.getItem("loggedInUser");
 
     // If there's no logged in user, deny access and redirect to login page
@@ -13,8 +13,8 @@
     try {
         loggedInUser = JSON.parse(loggedInUserJSON);
     } catch (error) {
-        console.error("Error parsing logged in user data:", error);
-        alert("Invalid session data. Please log in again.");
+        console.error("Error parsing logged in user lang-swap-data:", error);
+        alert("Invalid session lang-swap-data. Please log in again.");
         sessionStorage.removeItem("loggedInUser");
         window.location.href = "/index.html";
         return;

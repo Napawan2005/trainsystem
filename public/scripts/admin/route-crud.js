@@ -64,8 +64,8 @@
         const request = store.add(newRoute);
         request.onsuccess = () => {
             alert("Route created successfully!");
+            clearInputs();
             displayRoutes();
-            clearInputs(); // Clear inputs after creation
         };
         request.onerror = () => {
             alert("Error creating route. The route ID may already exist.");
@@ -104,8 +104,8 @@
             const updateRequest = store.put(data);
             updateRequest.onsuccess = () => {
                 alert("Route updated successfully!");
+                clearInputs();
                 displayRoutes();
-                clearInputs(); // Clear inputs after update
             };
             updateRequest.onerror = () => {
                 alert("Error updating route.");
@@ -129,59 +129,94 @@
         const deleteRequest = store.delete(parseInt(routeID));
         deleteRequest.onsuccess = () => {
             alert("Route deleted successfully!");
+            clearInputs();
             displayRoutes();
-            clearInputs(); // Clear inputs after deletion
+
+
+ // Clear inputs after deletion
         };
         deleteRequest.onerror = () => {
             alert("Error deleting route.");
         };
     }
-
-    // Display all routes in the routeList div with available seats calculated
     function displayRoutes() {
         const routeListDiv = document.getElementById("routeList");
         routeListDiv.innerHTML = "";
 
+        // Get input values from all search fields
+        const routeIDInput = document.getElementById("routeID").value.trim();
+        const departureInput = document.getElementById("departure").value.trim().toLowerCase();
+        const destinationInput = document.getElementById("destination").value.trim().toLowerCase();
+        const dateInput = document.getElementById("date").value.trim();
+        const timeInput = document.getElementById("time").value.trim();
+        clearInputs();
+
         const transaction = db.transaction([storeName], "readonly");
         const store = transaction.objectStore(storeName);
-        const request = store.openCursor();
-        let routesHTML = "<table>";
-        routesHTML += `
-            <tr>
-                <th>Route ID</th>
-                <th>Departure</th>
-                <th>Destination</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Total Seats</th>
-                <th>Available Seats</th>
-            </tr>
-        `;
 
-        // Array to hold promises for each route row
+        // Helper function to render the table header
+        const renderHeader = () => {
+            return `
+      <tr>
+        <th>Route ID</th>
+        <th>Departure</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Total Seats</th>
+        <th>Available Seats</th>
+      </tr>
+    `;
+        };
+
+        let routesHTML = "<table>" + renderHeader();
         let routePromises = [];
+
+        // Open a cursor to iterate over all routes in the store
+        const request = store.openCursor();
 
         request.onsuccess = (event) => {
             const cursor = event.target.result;
             if (cursor) {
                 const route = cursor.value;
-                // Create a promise for each route to get the available seat count
-                let p = getBookedSeats(route.routeID).then((bookedSeats) => {
-                    let available = route.number_of_seat - bookedSeats;
-                    return `<tr>
-                        <td>${route.routeID}</td>
-                        <td>${route.departure}</td>
-                        <td>${route.destination}</td>
-                        <td>${route.date}</td>
-                        <td>${route.time}</td>
-                        <td>${route.number_of_seat}</td>
-                        <td>${available}</td>
-                    </tr>`;
-                });
-                routePromises.push(p);
+                let matches = true;
+
+                // Check each input field if provided, and filter accordingly
+                if (routeIDInput) {
+                    matches = matches && (route.routeID === parseInt(routeIDInput));
+                }
+                if (departureInput) {
+                    matches = matches && route.departure.toLowerCase().includes(departureInput);
+                }
+                if (destinationInput) {
+                    matches = matches && route.destination.toLowerCase().includes(destinationInput);
+                }
+                if (dateInput) {
+                    matches = matches && (route.date === dateInput);
+                }
+                if (timeInput) {
+                    matches = matches && (route.time === timeInput);
+                }
+
+                // If the route matches the criteria, add it to the results
+                if (matches) {
+                    let p = getBookedSeats(route.routeID).then((bookedSeats) => {
+                        const available = route.number_of_seat - bookedSeats;
+                        return `<tr>
+                    <td>${route.routeID}</td>
+                    <td>${route.departure}</td>
+                    <td>${route.destination}</td>
+                    <td>${route.date}</td>
+                    <td>${route.time}</td>
+                    <td>${route.number_of_seat}</td>
+                    <td>${available}</td>
+                  </tr>`;
+                    });
+                    routePromises.push(p);
+                }
                 cursor.continue();
             } else {
-                // When all routes have been processed, wait for all promises to resolve
+                // Once all routes have been processed, build the table
                 Promise.all(routePromises)
                     .then((rows) => {
                         if (rows.length === 0) {

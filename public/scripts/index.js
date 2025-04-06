@@ -1,8 +1,10 @@
 import { initDatabases } from "./db/initialize-db.js";
+import {langStorage} from "./lang-swap/storage.js";
+import {loadTranslations, applyTranslations} from "./lang-swap/i18n.js"
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const toggleBtn = document.getElementById('toggle-btn');
+  const toggleBtn = document.getElementById('toggleText-btn');
   const toggleText = document.getElementById('toggleText');
   const passwordConfirmGroup = document.getElementById('password-confirm-group');
   let isLogin = true; // Default mode is Login
@@ -11,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
   initDatabases();
 
   toggleBtn.addEventListener('click', function () {
+    let newLang = langStorage.toggle();
+    loadTranslations();
+    applyTranslations(newLang);
     if (isLogin) {
       // Switch to Register mode
       passwordConfirmGroup.style.display = 'block';
