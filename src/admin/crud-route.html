@@ -18,19 +18,37 @@
 
 <!-- Navigation Bar -->
 <nav class="admin-navbar bg-gray-100 p-4" style="background-color: #9791ff;;">
-  <ul class="flex items-center space-x-4">
-    <li><a href="/src/admin/crud-user.html" id="userDBmanagement">CRUD User DB Management</a></li>
-    <li><a href="/src/admin/ticket-ordered.html" id="soldHistory">Sold History Ticket</a></li>
-    <li><a href="/src/admin/edit-seat.html" id="editSeatPrice">Edit Seat Price</a></li>
-    <li class="flex-1"></li>
-    <li><a href="/index.html" id="backToMainPage">Back to Main Page</a></li>
-    <li><a href="#" id="logout-btn">Logout</a></li>
+  <ul>
     <li>
-      <button class="change-TH px-4 py-2 bg-blue-500 text-white rounded" id="translate-btn">
-        Translate
-      </button>
+      <a data-i18n="crudUserManagement" href="/src/admin/crud-user.html" id="crudUserManagement">
+        CRUD User DB Management
+      </a>
+    </li>
+    <li>
+      <a href="/src/admin/edit-seat.html" id="editSeatPrice">Edit Seat Price</a>
+    </li>
+    <li>
+      <a data-i18n="soldHistoryTicket" href="/src/admin/ticket-ordered.html" id="soldHistoryTicket">
+        Sold History Ticket
+      </a>
+    </li>
+    <li class="spacer"></li>
+    <li>
+      <a data-i18n="backToMainPage" href="/index.html" id="backToMainPage">
+        Back to Main Page
+      </a>
+    </li>
+    <li>
+      <a data-i18n="logout" href="#" id="logout-btn">
+        Logout
+      </a>
     </li>
   </ul>
+  <div class="nav-actions">
+    <button data-i18n="translate" class="change-TH" id="translate-btn">
+      Translate
+    </button>
+  </div>
 </nav>
 
 <!-- Default CRUD Route Information Content -->

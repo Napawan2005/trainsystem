@@ -12,64 +12,99 @@
 </head>
 
 <body>
-  <header>
-    <h1 style="font-weight: bold; font-size: xx-large;">Edit Seat Class Prices</h1>
-  </header>
+<header>
+  <h1 data-i18n="editSeatHeader" style="font-weight: bold; font-size: xx-large;">Edit Seat Class Prices</h1>
+</header>
 
-  <!-- Navigation Bar -->
-  <nav class="admin-navbar bg-gray-100 p-4" style="background-color: #9791ff;;">
-    <ul class="flex items-center space-x-4">
-      <li><a href="/src/admin/crud-user.html" id="userDBmanagement">CRUD User DB Management</a></li>
-      <li><a href="/src/admin/ticket-ordered.html" id="soldHistory">Sold History Ticket</a></li>
-      <li><a href="/src/admin/edit-seat.html" id="editSeatPrice">Edit Seat Price</a></li>
-      <li class="flex-1"></li>
-      <li><a href="/index.html" id="backToMainPage">Back to Main Page</a></li>
-      <li><a href="#" id="logout-btn">Logout</a></li>
-      <li>
-        <button class="change-TH px-4 py-2 bg-blue-500 text-white rounded" id="translate-btn">
-          Translate
-        </button>
-      </li>
-    </ul>
-  </nav>
+<!-- Navigation Bar -->
+<nav class="admin-navbar bg-gray-100 p-4" style="background-color: #9791ff;">
+  <ul>
+    <li>
+      <a data-i18n="crudRouteInformation" href="/src/admin/crud-route.html" id="crudRouteInformation">
+        CRUD Route Information
+      </a>
+    </li>
+    <li>
+      <a data-i18n="crudUserManagement" href="/src/admin/crud-user.html" id="crudUserManagement">
+        CRUD User DB Management
+      </a>
+    </li>
+    <li>
+      <a data-i18n="soldHistoryTicket" href="/src/admin/ticket-ordered.html" id="soldHistoryTicket">
+        History Sold Ticket
+      </a>
+    </li>
+    <li class="spacer"></li>
+    <li>
+      <a data-i18n="backToMainPage" href="/index.html" id="backToMainPage">
+        Back to Main Page
+      </a>
+    </li>
+    <li>
+      <a data-i18n="logout" href="#" id="logout-btn">
+        Logout
+      </a>
+    </li>
+  </ul>
+  <div class="nav-actions">
+    <button data-i18n="translate" class="change-TH" id="translate-btn">
+      Translate
+    </button>
+  </div>
+</nav>
 
-  <main class="seat-container">
-    <!-- Class A -->
-    <div class="seat-class-box">
-      <div class="colorA"></div>
-      <h2>Class A</h2>
-      <p>Current Price: <span id="priceA">...</span></p>
-      <input type="number" id="newPriceA" placeholder="New Price" />
-      <button id="updateA">Update</button>
+<main class="seat-container">
+  <!-- Class A -->
+  <div class="seat-class-box">
+    <div class="colorA"></div>
+    <h2 data-i18n="classA">Class A</h2>
+    <div style="display: inline-block; margin-bottom: 10px;">
+      <p data-i18n="currentPriceLabel" style="display: inline;">Current Price:</p>
+      <span id="priceA" style="display: inline;">...</span>
+      <span data-i18n="currencyLabel" style="display: inline;"> THB</span>
     </div>
+    <br>
+    <label data-i18n="newPriceLabel" for="newPriceA">New Price:</label>
+    <input type="number" id="newPriceA" placeholder="New Price" />
+    <button data-i18n="updateButton" id="updateA">Update</button>
+  </div>
 
-    <!-- Class B -->
-    <div class="seat-class-box">
-      <div class="colorB"></div>
-      <h2>Class B</h2>
-      <p>Current Price: <span id="priceB">...</span></p>
-      <input type="number" id="newPriceB" placeholder="New Price" />
-      <button id="updateB">Update</button>
+  <!-- Class B -->
+  <div class="seat-class-box">
+    <div class="colorB"></div>
+    <h2 data-i18n="classB">Class B</h2>
+    <div style="display: inline-block; margin-bottom: 10px;">
+      <p data-i18n="currentPriceLabel" style="display: inline;">Current Price:</p>
+      <span id="priceB" style="display: inline;">...</span>
+      <span data-i18n="currencyLabel" style="display: inline;"> THB</span>
+
     </div>
+    <br>
+    <label data-i18n="newPriceLabel" for="newPriceB">New Price:</label>
+    <input type="number" id="newPriceB" placeholder="New Price" />
+    <button data-i18n="updateButton" id="updateB">Update</button>
+  </div>
 
-    <!-- Class C -->
-    <div class="seat-class-box">
-      <div class="colorC"></div>
-      <h2>Class C</h2>
-      <p>Current Price: <span id="priceC">...</span></p>
-      <input type="number" id="newPriceC" placeholder="New Price" />
-      <button id="updateC">Update</button>
+  <!-- Class C -->
+  <div class="seat-class-box">
+    <div class="colorC"></div>
+    <h2 data-i18n="classC">Class C</h2>
+    <div style="display: inline-block; margin-bottom: 10px;">
+      <p data-i18n="currentPriceLabel" style="display: inline;">Current Price:</p>
+      <span id="priceC" style="display: inline;">...</span>
+      <span data-i18n="currencyLabel" style="display: inline;"> THB</span>
     </div>
-  </main>
+    <br>
+    <label data-i18n="newPriceLabel" for="newPriceC">New Price:</label>
+    <input type="number" id="newPriceC" placeholder="New Price" />
+    <button data-i18n="updateButton" id="updateC">Update</button>
+  </div>
+</main>
 
-  <script type="module" src="/scripts/admin/edit-seat-price.js"></script>
-  <script type="module" src="/scripts/user/buy-history.js"></script>
-  <script src="/scripts/usecases/logout.js"></script>
-  <script type="module" src="/scripts/lang-swap/i18n.js"></script>
-
-</body>
-
-
+<script type="module" src="/scripts/admin/edit-seat-price.js"></script>
+<script type="module" src="/scripts/user/buy-history.js"></script>
+<script src="/scripts/usecases/logout.js"></script>
+<script type="module" src="/scripts/lang-swap/i18n.js"></script>
 </body>
 
 </html>
