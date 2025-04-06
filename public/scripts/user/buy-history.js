@@ -78,7 +78,7 @@
                 <td>${ticket.routeID}</td>
                 <td>${ticket.seatTaken}</td>
                 <td>${ticket.seatName.map(seat => seat.seatId).join(", ")}</td>
-                <td>$${ticket.totalPrice.toFixed(2)}</td>
+                <td>${ticket.totalPrice.toFixed(2)} THB</td>
               </tr>`;
         });
         html += "</table>";

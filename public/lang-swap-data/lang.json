@@ -149,7 +149,8 @@
     "destinationLabel": "Destination:",
     "dateLabel": "Date:",
     "timeLabel": "Time:",
-    "routeList": "Route List"
+    "routeList": "Route List",
+    "selectseats": "Selected Seats"
   },
   "th": {
     "title": "ยินดีต้อนรับสู่สวรรค์",
@@ -301,7 +302,8 @@
     "destinationLabel": "ปลายทาง:",
     "dateLabel": "วันที่:",
     "timeLabel": "เวลา:",
-    "routeList": "รายการเส้นทาง"
+    "routeList": "รายการเส้นทาง",
+    "selectseats": "ที่นั่ง ที่เลือกไว้"
 
   }
 }

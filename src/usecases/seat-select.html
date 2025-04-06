@@ -169,9 +169,13 @@
 
   <!-- Right Column: Summary Box -->
   <div class="seat-summary">
-    <h2 id="select">Selected Seats</h2>
+    <h2 data-i18n="selectseats" id="select">Selected Seats</h2>
     <div id="selected-seats"></div>
-    <h2>Total Price: $<span id="total-price">0</span></h2>
+    <div style="display: inline-block;">
+    <h2 data-i18n="totalPriceLabel" style="display: inline;">Total Price:</h2>
+    <span id="total-price" style="display: inline;">0</span> <p style="display: inline-block;">THB</p>
+  </div>
+
     <button id="confirm-btn">Confirm</button>
   </div>
 </main>

@@ -26,7 +26,7 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-##translate-bth{
+#translate-btn{
     width: 150px;
     height: 50px;
     background-color: #7876ff;
@@ -37,7 +37,7 @@ header {
     transition: background-color 0.3s ease;
 }
 
-#translate-bth:hover{
+#translate-btn:hover{
     background-color: #6756ff;
 }
 

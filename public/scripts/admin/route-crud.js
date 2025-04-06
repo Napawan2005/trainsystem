@@ -64,8 +64,8 @@
         const request = store.add(newRoute);
         request.onsuccess = () => {
             alert("Route created successfully!");
+            clearInputs();
             displayRoutes();
-            clearInputs(); // Clear inputs after creation
         };
         request.onerror = () => {
             alert("Error creating route. The route ID may already exist.");
@@ -104,8 +104,8 @@
             const updateRequest = store.put(data);
             updateRequest.onsuccess = () => {
                 alert("Route updated successfully!");
+                clearInputs();
                 displayRoutes();
-                clearInputs(); // Clear inputs after update
             };
             updateRequest.onerror = () => {
                 alert("Error updating route.");
@@ -129,8 +129,11 @@
         const deleteRequest = store.delete(parseInt(routeID));
         deleteRequest.onsuccess = () => {
             alert("Route deleted successfully!");
+            clearInputs();
             displayRoutes();
-            clearInputs(); // Clear inputs after deletion
+
+
+ // Clear inputs after deletion
         };
         deleteRequest.onerror = () => {
             alert("Error deleting route.");
@@ -146,6 +149,7 @@
         const destinationInput = document.getElementById("destination").value.trim().toLowerCase();
         const dateInput = document.getElementById("date").value.trim();
         const timeInput = document.getElementById("time").value.trim();
+        clearInputs();
 
         const transaction = db.transaction([storeName], "readonly");
         const store = transaction.objectStore(storeName);
