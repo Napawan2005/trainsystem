@@ -1,5 +1,6 @@
 /* ticket-ordered-history.css */
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Thai+Looped:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body {
     letter-spacing: 0.8px;
     font-family: "Itim", cursive;
@@ -11,31 +12,58 @@ body {
 header {
     background: radial-gradient(circle at center, #5c4ccf 0%, #1a1a2e 100%);
     color: #fff;
+    padding: 30px 20px;
+    height: 10vh;
     padding: 15px;
     text-align: center;
 }
 
+#translate-btn {
+    width: 150px;
+    height: 50px;
+    background-color: #7876ff;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    font-size: large;
+    transition: background-color 0.3s ease;
+}
+
+#translate-btn:hover {
+    background-color: #6756ff;
+}
+
+
 .admin-navbar {
-    background: #444;
-    padding: 10px;
+    background-color: #a79cfe;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dddddd;
 }
 
 .admin-navbar ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     align-items: center;
 }
 
-.admin-navbar ul li {
+#ticketOrder{
+
+    font-size: xx-large;
+    font-weight: bold;
+}
+.admin-navbar li {
     margin: 0 15px;
 }
 
-.admin-navbar ul li a {
-    color: #fff;
+.admin-navbar li a {
     text-decoration: none;
-    padding: 5px 10px;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.admin-navbar li a:hover {
+    color: #007bff;
 }
 
 .admin-navbar ul .spacer {
@@ -47,6 +75,7 @@ header {
     padding: 15px;
     text-align: center;
 }
+
 
 .search-form input[type="number"],
 .search-form input[type="text"] {
@@ -61,10 +90,15 @@ header {
     padding: 8px 16px;
     margin: 5px;
     border: none;
-    background: #333;
+    background: #8f6efa;
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.search-form button:hover{
+    background: #6756ff;
 }
 
 .results-section {
@@ -76,6 +110,7 @@ header {
     width: 90%;
     margin: 0 auto;
     border-collapse: collapse;
+    box-shadow: 0px 0px 5px #3333339f;
 }
 
 .results-section th,
@@ -83,9 +118,12 @@ header {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
+    background-color: #ffffff;
+    
 }
 
 .results-section th {
     background: #333;
     color: #fff;
 }
+

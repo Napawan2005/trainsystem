@@ -16,10 +16,12 @@
 
     <nav class="admin-navbar">
       <ul>
-        <li><a href="/src/admin/crud-route.html" id = "routeDB">CRUD Route DB Management</a></li>
-        <li><a href="/src/admin/crud-user.html" id = "routeUser">CRUD User DB Managment</a></li>
+        <li><a href="/src/admin/crud-route.html" id = "">CRUD Route Information</a></li>
+        <li><a href="/src/admin/ticket-ordered.html" id = "soldHistoryTicket">Sold History Ticket</a></li>
+        <li><a href="/src/admin/crud-user.html" id="userDBmanagement">CRUD User DB Management</a></li>
         <li class="spacer"></li>
-        <li><a href="/index.html" id = "backToMain">Back to Main Page</a></li>
+        <li><a href="/index.html" id = "backToMainPage">Back to Main Page</a></li>
+        <li><a href="#" id="logout-btn" id = "logOut">Logout</a></li>
         <div class="nav-actions">
           <button class="change-TH" id="translate-btn">Translate</button>
         </div>
@@ -27,19 +29,19 @@
     </nav>
 
     <section class="search-section">
-      <h2 id = "searchTicket">Search Tickets</h2>
+      <h2 id = "searchTicket" style="font-weight: bold; font-size:large;">Search Tickets</h2>
       <div class="search-form">
-        <input type="number" id="ticketID" placeholder="Ticket ID" />
-        <input type="number" id="routeID" placeholder="Route ID" />
-        <input type="number" id="userID" placeholder="User ID" />
-        <input type="number" id="totalPrice" placeholder="Total Price" />
-        <input type="text" id="seatFilter" placeholder="Seat (e.g. SA11)" />
+        <input type="number" id="ticketID" placeholder="Ticket ID" style="background: #fff;" />
+        <input type="number" id="routeID" placeholder="Route ID"  style="background: #fff;" />
+        <input type="number" id="userID" placeholder="User ID" style="background: #fff;" />
+        <input type="number" id="totalPrice" placeholder="Total Price" style="background: #fff;" />
+        <input type="text" id="seatFilter" placeholder="Seat (e.g. SA11)" style="background: #fff;" />
         <button id="searchBtn">Search</button>
       </div>
     </section>
 
     <section class="results-section">
-      <h2 id = "ticketRecords">Ticket Records</h2>
+      <h2 id = "ticketRecords" style="font-weight: bold; font-size:large;margin-bottom: 10px;">Ticket Records</h2>
       <div id="ticketList"></div>
     </section>
 

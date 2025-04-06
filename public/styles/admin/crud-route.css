@@ -19,8 +19,8 @@ body {
 /* Header Styling */
 header {
   background: radial-gradient(circle at center, #5c4ccf 0%, #1a1a2e 100%);
+  height: 10vh;
   padding: 30px 20px;
-
   color: #fff;
   text-align: center;
 }
@@ -30,20 +30,6 @@ header h1 {
 }
 
 /* Right side - button */
-.nav-actions button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.nav-actions button:hover {
-  background-color: #3f9542;
-}
-
 #translate-btn {
   width: 150px;
   height: 50px;
