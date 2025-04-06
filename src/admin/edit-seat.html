@@ -13,26 +13,30 @@
 
 <body>
   <header>
-    <h1>Edit Seat Class Prices</h1>
+    <h1 style="font-weight: bold; font-size: xx-large;">Edit Seat Class Prices</h1>
   </header>
 
   <!-- Navigation Bar -->
-  <nav class="admin-navbar">
-    <ul>
-      <li><a href="/src/admin/crud-route.html">CRUD Route DB Management</a></li>
-      <li><a href="/src/admin/crud-user.html">CRUD User DB Management</a></li>
-      <li><a href="/src/admin/ticket-ordered.html">Ticket Ordered</a></li>
-      <li class="spacer"></li>
-      <li><a href="/index.html">Back to Main Page</a></li>
-      <div class="nav-actions">
-        <button class="change-TH" id="translate-btn">Translate</button>
-      </div>
+  <nav class="admin-navbar bg-gray-100 p-4" style="background-color: #9791ff;;">
+    <ul class="flex items-center space-x-4">
+      <li><a href="/src/admin/crud-user.html" id="userDBmanagement">CRUD User DB Management</a></li>
+      <li><a href="/src/admin/ticket-ordered.html" id="soldHistory">Sold History Ticket</a></li>
+      <li><a href="/src/admin/edit-seat.html" id="editSeatPrice">Edit Seat Price</a></li>
+      <li class="flex-1"></li>
+      <li><a href="/index.html" id="backToMainPage">Back to Main Page</a></li>
+      <li><a href="#" id="logout-btn">Logout</a></li>
+      <li>
+        <button class="change-TH px-4 py-2 bg-blue-500 text-white rounded" id="translate-btn">
+          Translate
+        </button>
+      </li>
     </ul>
   </nav>
 
   <main class="seat-container">
     <!-- Class A -->
     <div class="seat-class-box">
+      <div class="colorA"></div>
       <h2>Class A</h2>
       <p>Current Price: <span id="priceA">...</span></p>
       <input type="number" id="newPriceA" placeholder="New Price" />
@@ -41,6 +45,7 @@
 
     <!-- Class B -->
     <div class="seat-class-box">
+      <div class="colorB"></div>
       <h2>Class B</h2>
       <p>Current Price: <span id="priceB">...</span></p>
       <input type="number" id="newPriceB" placeholder="New Price" />
@@ -49,6 +54,7 @@
 
     <!-- Class C -->
     <div class="seat-class-box">
+      <div class="colorC"></div>
       <h2>Class C</h2>
       <p>Current Price: <span id="priceC">...</span></p>
       <input type="number" id="newPriceC" placeholder="New Price" />

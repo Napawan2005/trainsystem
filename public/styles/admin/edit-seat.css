@@ -4,7 +4,6 @@ body {
     letter-spacing: 0.8px;
     font-family: "Itim", cursive;
     margin: 0;
-    font-family: Arial, sans-serif;
     background: #f4f4f4;
 }
 
@@ -15,34 +14,53 @@ header {
     text-align: center;
 }
 
-/* Navigation Bar */
+.back{
+    margin-left: 85vh;
+}
+
+#translate-btn {
+    width: 150px;
+    height: 50px;
+    background-color: #7876ff;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    font-size: large;
+    transition: background-color 0.3s ease;
+  }
+  
+  #translate-btn:hover {
+    background-color: #6756ff;
+  }
+  
+
+/* Navbar Styling */
 .admin-navbar {
-    background: #444;
-    padding: 10px;
+    background-color: #a79cfe;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
 }
 
 .admin-navbar ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     align-items: center;
 }
 
-.admin-navbar ul li {
+.admin-navbar li {
     margin: 0 15px;
 }
 
-.admin-navbar ul li a {
-    color: #fff;
+.admin-navbar li a {
     text-decoration: none;
-    padding: 5px 10px;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.admin-navbar ul .spacer {
-    flex-grow: 1;
+.admin-navbar li a:hover {
+    color: #007bff;
 }
-
 /* Main seat container */
 .seat-container {
     display: flex;
@@ -52,13 +70,16 @@ header {
 }
 
 .seat-class-box {
+   
     background: #fff;
     border: 1px solid #ccc;
     padding: 20px;
-    width: 250px;
+    height: 50vh;
+    width: 350px;
     text-align: center;
     border-radius: 5px;
     margin: 0 10px;
+    justify-items: center;
 }
 
 .seat-class-box h2 {
@@ -70,9 +91,11 @@ header {
 }
 
 .seat-class-box input[type="number"] {
+    margin-top: 10px;
     padding: 8px;
     width: 150px;
     margin-bottom: 10px;
+    background: aliceblue;
 }
 
 .seat-class-box button {
@@ -86,4 +109,24 @@ header {
 
 .seat-class-box button:hover {
     background: #555;
+}
+
+.colorA, 
+.colorB,
+.colorC{
+    width: 280px;
+    height: 250px;
+    margin: 20px;
+}
+
+.colorA{
+    background-color: gold;
+}
+
+.colorB{
+    background: #fff9c4;
+}
+
+.colorC{
+    background: #d3fafa;
 }

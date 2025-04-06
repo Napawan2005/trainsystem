@@ -26,7 +26,7 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#translate-btn{
+##translate-bth{
     width: 150px;
     height: 50px;
     background-color: #7876ff;
@@ -37,7 +37,7 @@ header {
     transition: background-color 0.3s ease;
 }
 
-#translate-btn:hover{
+#translate-bth:hover{
     background-color: #6756ff;
 }
 
@@ -46,7 +46,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    background-color: #8e7eff;
     padding: 20px 0;
 }
 
@@ -91,7 +91,9 @@ header {
 .navbar ul li:hover {
     background-color: #3e3a86;
 }
-
+.back{
+    
+}
 /* Route Info Box */
 .route-info {
     width: 35vw;
