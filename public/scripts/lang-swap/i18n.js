@@ -3,13 +3,13 @@ import { langStorage } from "./storage.js";
 
 let translations = {};
 
-async function loadTranslations() {
+export async function loadTranslations() {
     const res = await fetch("/lang-swap-data/lang.json");
     translations = await res.json();
     applyTranslations(langStorage.get());
 }
 
-function applyTranslations(lang) {
+export function applyTranslations(lang) {
     const langData = translations[lang];
 
     if (!langData) {
@@ -29,13 +29,14 @@ function applyTranslations(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    let newLang = langStorage.toggle();
     loadTranslations();
-
+    applyTranslations(newLang);
     const btn = document.getElementById("translate-btn");
     //console.log(btn);
     if (btn) {
         btn.addEventListener("click", () => {
-            const newLang = langStorage.toggle();
+            newLang = langStorage.toggle();
             applyTranslations(newLang);
             console.log("\n");
         });
