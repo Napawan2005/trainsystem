@@ -136,18 +136,21 @@
             alert("Error deleting route.");
         };
     }
-
     function displayRoutes() {
         const routeListDiv = document.getElementById("routeList");
         routeListDiv.innerHTML = "";
 
-        // Check if a specific route ID was entered for search
+        // Get input values from all search fields
         const routeIDInput = document.getElementById("routeID").value.trim();
-        console.log(routeIDInput.value);
+        const departureInput = document.getElementById("departure").value.trim().toLowerCase();
+        const destinationInput = document.getElementById("destination").value.trim().toLowerCase();
+        const dateInput = document.getElementById("date").value.trim();
+        const timeInput = document.getElementById("time").value.trim();
+
         const transaction = db.transaction([storeName], "readonly");
         const store = transaction.objectStore(storeName);
 
-        // Helper to render table header
+        // Helper function to render the table header
         const renderHeader = () => {
             return `
       <tr>
@@ -162,54 +165,37 @@
     `;
         };
 
-        if (routeIDInput) {
-            // Search for a specific route
-            const routeIdInt = parseInt(routeIDInput);
-            console.log(routeIdInt);
-            const request = store.get(routeIdInt);
-            let routesHTML = "<table>" + renderHeader();
+        let routesHTML = "<table>" + renderHeader();
+        let routePromises = [];
 
-            request.onsuccess = () => {
-                const route = request.result;
-                if (route) {
-                    getBookedSeats(route.routeID)
-                        .then((bookedSeats) => {
-                            const available = route.number_of_seat - bookedSeats;
-                            routesHTML += `<tr>
-              <td>${route.routeID}</td>
-              <td>${route.departure}</td>
-              <td>${route.destination}</td>
-              <td>${route.date}</td>
-              <td>${route.time}</td>
-              <td>${route.number_of_seat}</td>
-              <td>${available}</td>
-            </tr>`;
-                            routesHTML += "</table>";
-                            routeListDiv.innerHTML = routesHTML;
-                        })
-                        .catch((error) => {
-                            alert("Error calculating available seats: " + error);
-                        });
-                } else {
-                    routesHTML += `<tr><td colspan="7">No route found with ID ${routeIDInput}.</td></tr></table>`;
-                    routeListDiv.innerHTML = routesHTML;
+        // Open a cursor to iterate over all routes in the store
+        const request = store.openCursor();
+
+        request.onsuccess = (event) => {
+            const cursor = event.target.result;
+            if (cursor) {
+                const route = cursor.value;
+                let matches = true;
+
+                // Check each input field if provided, and filter accordingly
+                if (routeIDInput) {
+                    matches = matches && (route.routeID === parseInt(routeIDInput));
                 }
-            };
+                if (departureInput) {
+                    matches = matches && route.departure.toLowerCase().includes(departureInput);
+                }
+                if (destinationInput) {
+                    matches = matches && route.destination.toLowerCase().includes(destinationInput);
+                }
+                if (dateInput) {
+                    matches = matches && (route.date === dateInput);
+                }
+                if (timeInput) {
+                    matches = matches && (route.time === timeInput);
+                }
 
-            request.onerror = () => {
-                alert("Error retrieving the route.");
-            };
-        } else {
-            // No specific search term, display all routes
-            const request = store.openCursor();
-            let routesHTML = "<table>" + renderHeader();
-            let routePromises = [];
-
-            request.onsuccess = (event) => {
-                const cursor = event.target.result;
-                if (cursor) {
-                    const route = cursor.value;
-                    // Create a promise for each route to calculate available seats
+                // If the route matches the criteria, add it to the results
+                if (matches) {
                     let p = getBookedSeats(route.routeID).then((bookedSeats) => {
                         const available = route.number_of_seat - bookedSeats;
                         return `<tr>
@@ -223,28 +209,29 @@
                   </tr>`;
                     });
                     routePromises.push(p);
-                    cursor.continue();
-                } else {
-                    Promise.all(routePromises)
-                        .then((rows) => {
-                            if (rows.length === 0) {
-                                routesHTML += `<tr><td colspan="7">No routes found.</td></tr>`;
-                            } else {
-                                routesHTML += rows.join("");
-                            }
-                            routesHTML += "</table>";
-                            routeListDiv.innerHTML = routesHTML;
-                        })
-                        .catch((error) => {
-                            alert("Error calculating available seats: " + error);
-                        });
                 }
-            };
+                cursor.continue();
+            } else {
+                // Once all routes have been processed, build the table
+                Promise.all(routePromises)
+                    .then((rows) => {
+                        if (rows.length === 0) {
+                            routesHTML += `<tr><td colspan="7">No routes found.</td></tr>`;
+                        } else {
+                            routesHTML += rows.join("");
+                        }
+                        routesHTML += "</table>";
+                        routeListDiv.innerHTML = routesHTML;
+                    })
+                    .catch((error) => {
+                        alert("Error calculating available seats: " + error);
+                    });
+            }
+        };
 
-            request.onerror = () => {
-                alert("Error retrieving routes.");
-            };
-        }
+        request.onerror = () => {
+            alert("Error retrieving routes.");
+        };
     }
 
     // Helper function to get the total number of booked seats for a given routeID from TicketDB
