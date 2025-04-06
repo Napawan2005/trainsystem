@@ -1,14 +1,14 @@
 // payment.js
 (() => {
     document.addEventListener("DOMContentLoaded", () => {
-        // Retrieve data from sessionStorage
+        // Retrieve lang-swap-data from sessionStorage
         const routeID = sessionStorage.getItem("userSelectRouteID");
         const seatArray = JSON.parse(sessionStorage.getItem("selectSeatSS") || "[]");
         const subtotal = parseFloat(sessionStorage.getItem("totalPrice") || "0");
 
-        // If no booking data is available, redirect back to seat-select page.
+        // If no booking lang-swap-data is available, redirect back to seat-select page.
         if (!routeID || seatArray.length === 0) {
-            alert("No booking data found. Redirecting...");
+            alert("No booking lang-swap-data found. Redirecting...");
             window.location.href = "/src/usecases/seat-select.html";
             return;
         }
@@ -27,7 +27,7 @@
 
         // Attach event listener for Confirm button → insert record into TicketDB
         document.getElementById("confirm-btn").addEventListener("click", () => {
-            // Ensure there is booking data
+            // Ensure there is booking lang-swap-data
             if (seatArray.length === 0) {
                 alert("No seats selected. Please select at least one seat before confirming.");
                 return;
@@ -90,7 +90,7 @@
             const addRequest = store.add(newTicket);
             addRequest.onsuccess = () => {
                 alert("Payment confirmed! Your ticket has been saved.");
-                // Optionally, clear booking data from sessionStorage
+                // Optionally, clear booking lang-swap-data from sessionStorage
                 sessionStorage.removeItem("selectSeatSS");
                 sessionStorage.removeItem("totalPrice");
                 // Redirect to a confirmation or home page

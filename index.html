@@ -18,11 +18,12 @@
 
     </div>
     <div class="nav-actions">
-      <button class="bg-blue-500 text-white rounded px-4 py-2 mr-4" style="width: 100px; height:40px; margin:20px;">Translate</button>
+      <button data-i18n="translate" id="translate-btn" class="bg-blue-500 text-white rounded px-4 py-2 mr-4" style="width: 100px; height:40px; margin:20px;">Translate</button>
 
     </div>
   </nav>
 
+  <h1 data-i18n="title">Welcome to Heaven</h1>
 
   <div class="user-auth ">
     <div class="auth-container">
@@ -48,8 +49,8 @@
 
         <!-- Right Div: Mode Toggle -->
         <div class="auth-toggle">
-          <p id="toggleText" id = "don't">Don't have an account? <br> Register now</p>
-          <button id="toggle-btn" id = "switch">Switch to Register</button>
+          <p id="toggleText">Don't have an account? <br> Register now</p>
+          <button id="toggle-btn">Switch to Register</button>
         </div>
       </div>
   </div>
@@ -113,7 +114,6 @@
       <div class="footer-nav">
         <h3 id="footerMenuHeading">เมนู</h3>
         <ul>
-          <li><a href="#hero" id="footerNavHome">หน้าแรก</a></li>
           <li><a href="#popular-trips" id="footerNavPopular">เส้นทางยอดนิยม</a></li>
           <li><a href="#services" id="footerNavServices">บริการ</a></li>
           <li><a href="#about" id="footerNavAbout">เกี่ยวกับเรา</a></li>
@@ -136,6 +136,7 @@
   <script type="module" src="/scripts/usecases/login.js"></script>
   <script type="module" src="/scripts/usecases/register.js"></script>
   <script type="module" src="/scripts/db/initialize-db.js"></script>
-  <script type="module" src="/scripts/lang-swap/index-lang.js"></script>
+  <script type="module" src="/scripts/lang-swap/i18n.js"></script>
+
 </body>
 </html>
