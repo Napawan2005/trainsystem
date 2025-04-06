@@ -52,15 +52,24 @@
               <option value="admin" id = "adminT">Admin</option>
             </select>
           </td>
-        </tr>
-        <!-- Button Row: Create, Search, Update, Delete -->
-        <tr class="button-row">
-          <td colspan="2"><button id="createBtn" id = "create">Create</button></td>
-          <td colspan="1"><button id="searchBtn" id = "search">Search</button></td>
-          <td colspan="1"><button id="updateBtn" id = "update">Update</button></td>
-          <td colspan="2"><button id="deleteBtn" id = "delect">Delete</button></td>
-        </tr>
       </table>
+      
+  <!-- Button Grid -->
+  <div class="grid grid-cols-4 gap-4">
+    <button id="createBtn" class="action-btn">
+      Create
+    </button>
+    <button id="searchBtn" class="action-btn">
+      Search
+    </button>
+    <button id="updateBtn" class=" action-btn">
+      Update
+    </button>
+    <button id="deleteBtn" class="action-btn" >
+      Delete
+    </button>
+  </div>
+
       <!-- Div to display the list of users -->
       <div id="userList"></div>
     </div>
