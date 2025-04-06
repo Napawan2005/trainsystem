@@ -10,33 +10,35 @@
   </head>
   <body>
     <header>
-      <h1 id = "bookingPage">Booking Page</h1>
+      <h1 id = "bookingPage" style="font-size: xx-large;">Booking Page</h1>
+      <div class="nav-actions">
+        <button id = "translateBTH">Translate</button>
+  
+      </div>
+      <nav class="navbar">
+        <ul>
+            <li><a href="/src/usecases/booking.html" id="Home">Home</a></li>
+            <li><a href="/src/user/buy-history.html" id="book">History</a></li>
+            <li><a href="#" id="logout-btn" id="logOut">Logout</a></li>
+            
+        </ul>
+      </nav>
     </header>
-
-    <nav class="navbar">
-      <ul>
-        <li><a href="/index.html" id = "Homebooking">Home</a></li>
-        <li><a href="/src/user/buy-history.html" id = "Historybookin">History</a></li>
-        <li><a href="#" id="logout-btnbooking">Logout</a></li>
-        <div class="nav-actions">
-          <button class="change-TH" id="translate-btn-booking">Translate</button>
-        </div>
-      </ul>
-    </nav>
-
-    <section class="search-section">
-      <h2 id = "">Search Available Routes</h2>
+    
+   
+    <section class="search-section" style="margin-top: 15vh ;">
+      <h2 id = "" style="font-size: larger;">Search Available Routes</h2>
       <div class="search-form">
-        <input type="text" id="departure" placeholder="Departure" />
-        <input type="text" id="destination" placeholder="Destination" />
-        <input type="time" id="time" placeholder="Time" />
+        <input type="text" id="departure" placeholder="Departure"  style="background-color: beige;"/>
+        <input type="text" id="destination" placeholder="Destination" style="background-color: beige;"/>
+        <input type="time" id="time" placeholder="Time" style="background-color: beige;"/>
         <button id="searchBtn">Search</button>
       </div>
     </section>
 
 
     <section class="results-section">
-      <h2 id = "availableRoutes">Available Routes</h2>
+      <h2 id = "availableRoutes" style="font-size: larger; font-weight:bold">Available Routes</h2>
       <div id="results"></div>
     </section>
 
