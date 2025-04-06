@@ -12,18 +12,84 @@
 }
 
 body {
-    background: #f4f4f4;
+    background: #ffffff;
 }
 
 /* Header */
 header {
-    
+    background: radial-gradient(circle at center, #5c4ccf 0%, #1a1a2e 100%);
     color: #fff;
     padding: 20px;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#translate-bth{
+    width: 150px;
+    height: 50px;
+    background-color: #7876ff;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    font-size: large;
+    transition: background-color 0.3s ease;
+}
+
+#translate-bth:hover{
+    background-color: #6756ff;
+}
+
+/* ================== Navbar ================== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    width: 500px;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    background-color: #6756ff;
+    border-radius: 6px;
+}
+
+.navbar ul li {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.navbar ul li a {
+    margin: 0;
+    display: flex;
+    /* ทำให้ข้อความอยู่กลาง */
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    min-width: 100px;
+    padding: 0 20px;
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 4px;
+    
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.navbar ul li:hover {
+    background-color: #3e3a86;
 }
 
 /* Route Info Box */

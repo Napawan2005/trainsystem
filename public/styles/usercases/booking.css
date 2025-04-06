@@ -33,7 +33,7 @@ header {
 
 */
 
-#translateBTH {
+#translate-bth{
     width: 150px;
     height: 50px;
     background-color: #7876ff;
@@ -44,7 +44,7 @@ header {
     transition: background-color 0.3s ease;
 }
 
-#translateBTH:hover{
+#translate-bth:hover{
     background-color: #6756ff;
 }
 

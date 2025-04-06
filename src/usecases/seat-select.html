@@ -10,22 +10,32 @@
   </head>
   <body>
     <header>
-      <h1 id="seatSelection">Select Your Seat</h1>
+      <h1 id="seatSelection" style="font-size: xx-large;">Select Your Seat</h1>
+      
+      <div class="nav-actions">
+        <button id = "translate-bth">Translate</button>
+  
+      </div>
+      <nav class="navbar">
+        <ul>
+            <li><a href="/src/usecases/booking.html" id="Home">Home</a></li>
+            <li><a href="/src/user/buy-history.html" id="book">History</a></li>
+            <li><a href="#" id="logout-btn" id="logOut">Logout</a></li>
+            
+        </ul>
+      </nav>
       <div class="route-info">
         <p id ="departureT">Departure: <span id="departure"></span></p>
         <p id = "destinationT">Destination: <span id="destination"></span></p>
         <p id = "dateT">Date: <span id="date"></span></p>
         <p id = "timeT">Time: <span id="time"></span></p>
       </div>
-      <div class="nav-actions">
-        <button class="change-TH" id="translate-btn">Translate</button>
-      </div>
     </header>
 
     <main class="seat-container">
       <!-- Left Column: Seat Layout -->
       <div class="seat-layout">
-        <h2 id = "seatLayout">Seat Layout</h2>
+        <h1 id = "seatLayout" style="font-size:xx-large; margin:25px;">Seat Layout</h1>
         <div class="seat-map">
           <table>
             <!-- Class A Seats -->
