@@ -1,4 +1,6 @@
 import { initDatabases } from "./db/initialize-db.js";
+import {langStorage} from "./lang-swap/storage.js";
+import {loadTranslations, applyTranslations} from "./lang-swap/i18n.js"
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -11,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
   initDatabases();
 
   toggleBtn.addEventListener('click', function () {
+    let newLang = langStorage.toggle();
+    loadTranslations();
+    applyTranslations(newLang);
     if (isLogin) {
       // Switch to Register mode
       passwordConfirmGroup.style.display = 'block';
