@@ -19,9 +19,9 @@ body {
 /* Header Styling */
 header {
   background: radial-gradient(circle at center, #5c4ccf 0%, #1a1a2e 100%);
+  padding: 30px 20px;
 
   color: #fff;
-  padding: 30px 20px;
   text-align: center;
 }
 

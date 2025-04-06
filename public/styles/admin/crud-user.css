@@ -26,6 +26,22 @@ header h1 {
     font-size: 2.5em;
 }
 
+#translate-btn {
+    width: 150px;
+    height: 50px;
+    background-color: #7876ff;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    font-size: large;
+    transition: background-color 0.3s ease;
+  }
+  
+  #translate-btn:hover {
+    background-color: #6756ff;
+  }
+  
+
 /* Navbar Styling */
 .admin-navbar {
     background-color: #a79cfe;
@@ -124,8 +140,13 @@ header h1 {
 
 .action-btn{
     height: 50px;
-    background: #7366da;
+    background: #9283ff;
+    transition: 0.3s ease-in;
     border-radius: 5px;
     color: #fff;
     margin-bottom: 10px;
+}
+
+.action-btn:hover{
+    background: #5c4ccf;
 }

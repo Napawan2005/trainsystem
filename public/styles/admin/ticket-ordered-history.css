@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background: #333;
+    background: radial-gradient(circle at center, #5c4ccf 0%, #1a1a2e 100%);
     color: #fff;
     padding: 15px;
     text-align: center;
