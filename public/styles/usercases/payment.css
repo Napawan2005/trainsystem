@@ -16,19 +16,20 @@ header {
     text-align: center;
 }
 /* Right side - button */
-.nav-actions button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .nav-actions button:hover {
-    background-color: #3f9542;
-  }
+#translate-btn{
+    width: 150px;
+    height: 50px;
+    background-color: #7876ff;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    font-size: large;
+    transition: background-color 0.3s ease;
+}
+
+#translate-btn:hover{
+    background-color: #6756ff;
+}
 
 .payment-container {
     display: flex;

@@ -125,6 +125,20 @@ input[type="password"] {
   background-color: #0056b3;
 }
 
+#translate-btn{
+  width: 150px;
+  height: 50px;
+  background-color: #7876ff;
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  font-size: large;
+  transition: background-color 0.3s ease;
+}
+
+#translate-btn:hover{
+  background-color: #6756ff;
+}
 
 /* ====================== service ====================== */
 .services {
