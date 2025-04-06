@@ -2,7 +2,7 @@ import { initDatabases } from "./db/initialize-db.js";
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  const toggleBtn = document.getElementById('toggle-btn');
+  const toggleBtn = document.getElementById('toggleText-btn');
   const toggleText = document.getElementById('toggleText');
   const passwordConfirmGroup = document.getElementById('password-confirm-group');
   let isLogin = true; // Default mode is Login

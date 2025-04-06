@@ -31,7 +31,7 @@
             if (passwordConfirmGroup.style.display !== "none") {
                 const username = document.getElementById("username").value.trim();
                 const password = document.getElementById("password").value;
-                const passwordConfirm = document.getElementById("passwordConfirm").value;
+                const passwordConfirm = document.getElementById("password-confirm").value;
 
                 // Validate that both password fields match
                 if (password !== passwordConfirm) {

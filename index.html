@@ -22,35 +22,34 @@
 
     </div>
   </nav>
+  <h1 class="text-banner" data-i18n="title">Welcome to Heaven</h1>
+  <div class="user-auth">
 
-  <h1 data-i18n="title">Welcome to Heaven</h1>
-
-  <div class="user-auth ">
     <div class="auth-container">
         <!-- Left Div: Form -->
         <div class="auth-form">
           <form id="authForm">
             <div class="form-group">
-              <label for="username" id = "loginUsername">Username</label>
+              <label data-i18n="loginUsername" for="username" id="loginUsername">Username</label>
               <input type="text" id="username" name="username" required />
             </div>
             <div class="form-group">
-              <label for="password" id = "loginPassawan">Password</label>
+              <label data-i18n="loginPassword" for="password" id="loginPassword"> Password</label>
               <input type="password" id="password" name="password" required />
             </div>
             <!-- Register Mode: Confirm Password (hidden by default) -->
             <div class="form-group" id="password-confirm-group" style="display: none;">
-              <label for="passwordConfirm" id = "regirtesConfirm">Confirm Password</label>
-              <input type="password" id="passwordConfirm" name="passwordConfirm"  />
+              <label data-i18n="PasswordConfirm" for="password-confirm" id="PasswordConfirm">Confirm Password</label>
+              <input type="password" id="password-confirm" name="passwordConfirm"  />
             </div>
-            <button type="submit" id="confirm-btn">Confirm</button>
+            <button data-i18n="confirm-btn" type="submit" id="confirm-btn">Confirm</button>
           </form>
         </div>
 
         <!-- Right Div: Mode Toggle -->
         <div class="auth-toggle">
-          <p id="toggleText">Don't have an account? <br> Register now</p>
-          <button id="toggle-btn">Switch to Register</button>
+          <p data-i18n="toggleText" id="toggleText">Don't have an account? <br> Register now</p>
+          <button data-i18n="toggleText" id="toggleText-btn">Switch to Register</button>
         </div>
       </div>
   </div>

@@ -19,9 +19,9 @@ function applyTranslations(lang) {
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
-        console.log(key)
         if (langData[key]) {
             el.textContent = langData[key];
+            console.log("key = " + key + " = " + langData[key]);
         }
     });
 
@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", () => {
             const newLang = langStorage.toggle();
             applyTranslations(newLang);
+            console.log("\n");
         });
     }
 });

@@ -1,10 +1,20 @@
 {
   "en": {
     "title": "Welcome to Heaven",
-    "translate": "Translate"
+    "translate": "Translate",
+    "translate-btn": "Translate",
+    "loginUsername": "Username",
+    "loginPassword": "Password",
+    "PasswordConfirm": "Confirm Password",
+    "confirm-btn": "Confirm"
   },
   "th": {
     "title": "ยินดีต้อนรับสู่สวรรค์",
-    "translate": "แปลภาษา"
+    "translate": "แปลภาษา",
+    "translate-btn": "แปลภาษา",
+    "loginUsername": "ผู้ใช้",
+    "loginPassword": "รหัสผ่าน",
+    "PasswordConfirm": "ยืนยันรหัสผ่าน",
+    "confirm-btn": "ยืนยัน เว้ยยยยย"
   }
 }

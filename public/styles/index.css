@@ -14,6 +14,16 @@
   font-weight: bolder;
 }
 
+.text-banner {
+  color: floralwhite;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bolder;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #5c4ccf 0%, #1a1a2e 100%);
+  background-size: cover;
+}
 .user-auth {
   display: flex;
   justify-content: center;
