@@ -22,12 +22,26 @@
       <li><a data-i18n="LO" href="#" id="logout-btn">Logout</a></li>
     </ul>
   </nav>
-  <div class="route-info">
-    <p data-i18n="DPT" id="departureT">Departure: <span id="departure"></span></p>
-    <p data-i18n="DTN" id="destinationT">Destination: <span id="destination"></span></p>
-    <p data-i18n="DATE" id="dateT">Date: <span id="date"></span></p>
-    <p data-i18n="TIME" id="timeT">Time: <span id="time"></span></p>
+  <div style="background-color: white">
+  <div style="display: inline-block; margin-right: 20px; background-color: white; padding: 5px; border-radius: 5px; color: black;">
+    <p data-i18n="DPT" id="departureT" style="display: inline;">Departure:</p>
+    <span id="departure" style="display: inline;"></span>
   </div>
+  <div style="display: inline-block; margin-right: 20px; background-color: white; padding: 5px; border-radius: 5px; color: black;">
+    <p data-i18n="DTN" id="destinationT" style="display: inline;">Destination:</p>
+    <span id="destination" style="display: inline;"></span>
+  </div>
+  <div style="display: inline-block; margin-right: 20px; background-color: white; padding: 5px; border-radius: 5px; color: black;">
+    <p data-i18n="DATE" id="dateT" style="display: inline;">Date:</p>
+    <span id="date" style="display: inline;"></span>
+  </div>
+  <div style="display: inline-block; margin-right: 20px; background-color: white; padding: 5px; border-radius: 5px; color: black;">
+    <p data-i18n="TIME" id="timeT" style="display: inline;">Time:</p>
+    <span id="time" style="display: inline;"></span>
+  </div>
+  </div>
+
+
 </header>
 
 <main class="seat-container">
@@ -163,6 +177,7 @@
 </main>
 
 <script type="module" src="/scripts/lang-swap/i18n.js"></script>
+<script src="/scripts/usecases/logout.js"></script>
 <script type="module" src="/scripts/usecases/seat-select.js"></script>
 
 </body>
