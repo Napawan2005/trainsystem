@@ -9,29 +9,43 @@
   </head>
   <body>
     <header>
-      <h1 id = "payment" style="font-size: xx-large; font-weight:bold;">Payment Information</h1>
+      <h1 data-i18n="PaymentIF" id="payment" style="font-size: xx-large; font-weight:bold;">Payment Information</h1>
       <div class="nav-actions">
-        <button class="change-TH" id="translate-btn" style="font-size: large; font-weight:bold;">Translate</button>
+        <button data-i18n="translate" class="change-TH" id="translate-btn" style="font-size: large; font-weight:bold;">Translate</button>
       </div>
     </header>
 
     <main class="payment-container">
       <div class="payment-box">
-        <h2 id = "summary" style="font-size:x-large">Booking Summary</h2>
+        <h2 data-i18n="BS" id="summary" style="font-size:x-large">Booking Summary</h2>
+
         <div id="booking-details"></div>
+
         <div class="price-info">
-          <p >Subtotal: $<span id="subtotal">0</span></p>
-          <p >VAT (7%): $<span id="vat-amount">0</span></p>
-          <p >Total: $<span id="final-total">0</span></p>
+          <div style="display: inline-block; margin-right: 20px; padding: 5px; border-radius: 5px; color: white;">
+            <p data-i18n="Subtotal" style="display: inline;">Subtotal:</p>
+            <span id="subtotal" style="display: inline;">0</span>
+            <span style="display: inline;"> Bath</span>
+          </div>
+          <div style="display: inline-block; margin-right: 20px; padding: 5px; border-radius: 5px; color: white;">
+            <p data-i18n="VAT" style="display: inline;">VAT (7%):</p>
+            <span id="vat-amount" style="display: inline;">0</span>
+            <span style="display: inline;"> Bath</span>
+          </div>
+          <div style="display: inline-block; margin-right: 20px; padding: 5px; border-radius: 5px; color: white;">
+            <p data-i18n="Total" style="display: inline;">Total:</p>
+            <span id="final-total" style="display: inline;">0</span>
+            <span style="display: inline;"> Bath</span>
+          </div>
         </div>
+
         <div class="payment-actions">
-          <button id="cancel-btn">Cancel</button>
-          <button id="confirm-btn">Confirm</button>
+          <button data-i18n="cancel-btn" id="cancel-btn">Cancel</button>
+          <button data-i18n="confirm-btn" id="confirm-btn">Confirm</button>
         </div>
       </div>
     </main>
     <script src="/scripts/usecases/payment.js"></script>
-    <script src="/scripts/lang-swap/index-lang.js"></script>
-
+    <script type="module" src="/scripts/lang-swap/i18n.js"></script>
   </body>
 </html>

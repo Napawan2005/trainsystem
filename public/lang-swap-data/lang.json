@@ -89,7 +89,13 @@
     "SC13": "SC13",
     "SC14": "SC14",
     "SC15": "SC15",
-    "SC16": "SC16"
+    "SC16": "SC16",
+    "PaymentIF": "Payment Information",
+    "BS": "Booking Summary",
+    "Subtotal": "Subtotal:",
+    "VAT": "VAT (7%):",
+    "Total": "Total:",
+    "cancel-btn": "Cancel"
   },
   "th": {
     "title": "ยินดีต้อนรับสู่สวรรค์",
@@ -181,6 +187,12 @@
     "SC13": "SC13",
     "SC14": "SC14",
     "SC15": "SC15",
-    "SC16": "SC16"
+    "SC16": "SC16",
+    "PaymentIF": "ข้อมูลการชำระเงิน",
+    "BS": "สรุปการจอง",
+    "Subtotal": "ยอดรวมย่อย:",
+    "VAT": "ภาษีมูลค่าเพิ่ม (7%):",
+    "Total": "รวมทั้งหมด:",
+    "cancel-btn": "ยกเลิก"
   }
 }
