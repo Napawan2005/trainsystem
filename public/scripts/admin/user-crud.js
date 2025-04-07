@@ -61,18 +61,19 @@
 
     // Create a new user record
     function createUser() {
+        const userID = document.getElementById("userID").value;
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         const role = document.getElementById("role").value;
 
-        if (!username || !password || !role) {
+        if (!userID || !username || !password || !role) {
             alert("Please fill in all fields.");
             return;
         }
 
         const transaction = db.transaction([storeName], "readwrite");
         const store = transaction.objectStore(storeName);
-        const newUser = { username, password, role };
+        const newUser = { userID, username, password, role };
         const request = store.add(newUser);
 
         request.onsuccess = (event) => {
@@ -86,15 +87,12 @@
         };
     }
 
-    // Search users based on provided criteria
     function searchUsers() {
         const userIDVal = document.getElementById("userID").value.trim();
+        console.log("user to find => " + userIDVal);
         const usernameVal = document.getElementById("username").value.trim().toLowerCase();
         const passwordVal = document.getElementById("password").value.trim().toLowerCase();
         const roleVal = document.getElementById("role").value.trim().toLowerCase();
-
-        // Remove the condition that stops search if no criteria is entered
-        // This way, an empty search will query all users.
 
         const userListDiv = document.getElementById("userList");
         userListDiv.innerHTML = "";
@@ -109,12 +107,21 @@
             const cursor = event.target.result;
             if (cursor) {
                 const user = cursor.value;
+                console.log("cursor userID: " + user.userID);
                 let match = true;
-                // Check each field only if a value is provided
-                if (userIDVal && user.userID !== parseInt(userIDVal)) match = false;
-                if (usernameVal && !user.username.toLowerCase().includes(usernameVal)) match = false;
-                if (passwordVal && !user.password.toLowerCase().includes(passwordVal)) match = false;
-                if (roleVal && !user.role.toLowerCase().includes(roleVal)) match = false;
+                // Compare userID as numbers to avoid type mismatches
+                if (userIDVal && Number(user.userID) !== Number(userIDVal)) {
+                    match = false;
+                }
+                if (usernameVal && !user.username.toLowerCase().includes(usernameVal)) {
+                    match = false;
+                }
+                if (passwordVal && !user.password.toLowerCase().includes(passwordVal)) {
+                    match = false;
+                }
+                if (roleVal && !user.role.toLowerCase().includes(roleVal)) {
+                    match = false;
+                }
                 if (match) {
                     foundMatch = true;
                     usersHTML += `<tr>
@@ -137,6 +144,7 @@
             alert("Error searching users.");
         };
     }
+
 
 
     // Update an existing user record
