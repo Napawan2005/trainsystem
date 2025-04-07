@@ -33,12 +33,12 @@ export function applyTranslations(lang) {
 
 document.addEventListener("DOMContentLoaded", () => {
     let newLang = langStorage.toggle();
-    loadTranslations();
-    applyTranslations(newLang);
+
     const btn = document.getElementById("translate-btn");
     //console.log(btn);
     if (btn) {
         btn.addEventListener("click", () => {
+            loadTranslations();
             newLang = langStorage.toggle();
             applyTranslations(newLang);
             console.log("\n");

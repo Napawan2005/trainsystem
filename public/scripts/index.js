@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toggleBtn.addEventListener('click', function () {
     let newLang = langStorage.toggle();
+
     loadTranslations();
     applyTranslations(newLang);
+
     if (isLogin) {
       // Switch to Register mode
       passwordConfirmGroup.style.display = 'block';

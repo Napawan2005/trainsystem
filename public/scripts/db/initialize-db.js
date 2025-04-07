@@ -70,7 +70,8 @@ function initSeatClassDB() {
         request.onsuccess = (event) => resolve(event.target.result);
         request.onerror = (event) =>
             reject("Error opening SeatClassDB: " + event.target.errorCode);
-    });
+        }
+    );
 }
 
 // Main initialization function to be imported and invoked.
