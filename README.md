@@ -112,5 +112,3 @@ Welcome to the **Go to Heaven Project**! This project is a web-based application
   Use your browser's Developer Tools to inspect IndexedDB, sessionStorage, and console logs for debugging purposes.
 
 ---
-
----
