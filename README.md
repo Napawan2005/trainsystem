@@ -113,8 +113,4 @@ Welcome to the **Go to Heaven Project**! This project is a web-based application
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ---
